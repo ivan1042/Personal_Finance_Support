@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Personal Finance Support.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/yahoo.py" afterDir="false" />
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="creating project, completed yfinance caller">
+      <change afterPath="$PROJECT_DIR$/analytics/returns.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/yahoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/yahoo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +20,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ivan1042"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ivan1042/Personal_Finance_Support.git",
+    "accountId": "145ee733-58bb-4ed4-9e16-375aefbe0358"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 4
 }]]></component>
@@ -40,6 +46,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.returns.executor": "Run",
     "Python.yahoo finance caller.executor": "Run",
     "Python.yahoofinance.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -62,6 +69,15 @@
       <option name="presentableId" value="Default" />
       <updated>1783347716257</updated>
     </task>
+    <task id="LOCAL-00001" summary="creating project, completed yfinance caller">
+      <option name="closed" value="true" />
+      <created>1783349850034</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1783349850034</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -74,5 +90,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="creating project, completed yfinance caller" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating project, completed yfinance caller" />
   </component>
 </project>

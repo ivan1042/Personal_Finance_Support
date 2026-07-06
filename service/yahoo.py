@@ -14,6 +14,5 @@ def get_historical_data(symbol, start = None, end = datetime.date.today().strfti
     file = service / f"{symbol}_historical.csv"
     target = service.parent / "data"
     shutil.move(file, target)
+    return target
 
-
-get_historical_data("AAPL")
