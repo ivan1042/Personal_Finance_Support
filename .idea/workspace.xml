@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="Got historic and parametric VaR, the diff is quite big">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="Made geo_mean">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics/returns.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/returns.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics/risk.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/risk.py" afterDir="false" />
@@ -97,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783395567049</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Made geo_mean">
+      <option name="closed" value="true" />
+      <created>1783396330295</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1783396330295</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +123,7 @@
     <MESSAGE value="creating project, completed yfinance caller" />
     <MESSAGE value="analytics successfully fetching the data" />
     <MESSAGE value="Got historic and parametric VaR, the diff is quite big" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got historic and parametric VaR, the diff is quite big" />
+    <MESSAGE value="Made geo_mean" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made geo_mean" />
   </component>
 </project>

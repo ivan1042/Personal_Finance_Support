@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+from scipy.stats import gmean
 
 current = Path(__file__).resolve().parent
 data = current.parent / "data"
@@ -13,3 +14,8 @@ df = df.drop(columns = ["High", "Low", "Volume"])
 df["Change"] = df["Close"] - df["Open"]
 df["%Change"] = df["Change"] / df["Open"]
 df["Ratio"] = 1 + df["%Change"]
+
+monthly_art_mean = df["Ratio"].mean()
+monthly_geo_mean = gmean(df["Ratio"])
+
+
