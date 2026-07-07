@@ -11,5 +11,5 @@ for item in data.iterdir():
 
 df = df.drop(columns = ["High", "Low", "Volume"])
 df["Change"] = df["Close"] - df["Open"]
-df["%Change"] = df["Change"] / df["Open"] * 100
-
+df["%Change"] = df["Change"] / df["Open"]
+df["Ratio"] = 1 + df["%Change"]
