@@ -1,6 +1,6 @@
+from analytics import risk
 import pandas as pd
 from pathlib import Path
-from scipy.stats import gmean
 
 current = Path(__file__).resolve().parent
 data = current.parent / "data"
@@ -13,7 +13,5 @@ df["Change"] = df["Close"] - df["Open"]
 df["%Change"] = df["Change"] / df["Open"]
 df["Ratio"] = 1 + df["%Change"]
 
-monthly_art_mean = df["Ratio"].mean()
-monthly_geo_mean = gmean(df["Ratio"])
-
-
+historical_VaR = risk.historical_VaR
+print(historical_VaR)

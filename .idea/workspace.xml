@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="Made geo_mean">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="art, geo mean, volatility, VaR">
+      <change afterPath="$PROJECT_DIR$/analytics/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashbroad.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics/returns.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/returns.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics/risk.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/risk.py" afterDir="false" />
@@ -47,6 +49,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.dashbroad.executor": "Run",
     "Python.returns.executor": "Run",
     "Python.risk.executor": "Run",
     "Python.yahoo finance caller.executor": "Run",
@@ -58,6 +61,11 @@
     "git-widget-placeholder": "master"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\Personal Finance Support" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -105,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783396330295</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="art, geo mean, volatility, VaR">
+      <option name="closed" value="true" />
+      <created>1783397629592</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1783397629592</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,6 +140,7 @@
     <MESSAGE value="analytics successfully fetching the data" />
     <MESSAGE value="Got historic and parametric VaR, the diff is quite big" />
     <MESSAGE value="Made geo_mean" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made geo_mean" />
+    <MESSAGE value="art, geo mean, volatility, VaR" />
+    <option name="LAST_COMMIT_MESSAGE" value="art, geo mean, volatility, VaR" />
   </component>
 </project>
