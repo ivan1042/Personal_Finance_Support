@@ -16,3 +16,4 @@ def get_historical_data(symbol, start = None, end = datetime.date.today().strfti
     shutil.move(file, target)
     return target
 
+get_historical_data("VFINX")
