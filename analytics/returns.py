@@ -14,6 +14,8 @@ df["%Change"] = df["Change"] / df["Open"]
 df["Ratio"] = 1 + df["%Change"]
 
 monthly_art_mean = df["Ratio"].mean()
+yearly_art_mean = monthly_art_mean**12-1
 monthly_geo_mean = gmean(df["Ratio"])
+yearly_geo_mean = monthly_geo_mean**12-1
 
 
