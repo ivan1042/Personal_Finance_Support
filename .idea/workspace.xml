@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="art, geo mean, volatility, VaR">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="monthly_sharpe_ratio around 22, waiting for fact check">
+      <change afterPath="$PROJECT_DIR$/analytics/retirement.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/returns.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/returns.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics/risk.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/risk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashbroad.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashbroad.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.dashbroad.executor": "Run",
+    "Python.retirement.executor": "Run",
     "Python.returns.executor": "Run",
     "Python.risk.executor": "Run",
     "Python.yahoo finance caller.executor": "Run",
@@ -123,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783397629592</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="monthly_sharpe_ratio around 22, waiting for fact check">
+      <option name="closed" value="true" />
+      <created>1783422588011</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1783422588011</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,6 +151,7 @@
     <MESSAGE value="Got historic and parametric VaR, the diff is quite big" />
     <MESSAGE value="Made geo_mean" />
     <MESSAGE value="art, geo mean, volatility, VaR" />
-    <option name="LAST_COMMIT_MESSAGE" value="art, geo mean, volatility, VaR" />
+    <MESSAGE value="monthly_sharpe_ratio around 22, waiting for fact check" />
+    <option name="LAST_COMMIT_MESSAGE" value="monthly_sharpe_ratio around 22, waiting for fact check" />
   </component>
 </project>
