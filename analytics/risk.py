@@ -1,5 +1,6 @@
 import numpy as np
 import scipy.stats as stats
+from analytics.returns import *
 
 confidence_level = 0.95
 
