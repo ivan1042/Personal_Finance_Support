@@ -20,7 +20,7 @@ def stats(stock_code = "VFINX"):
     monthly_geo_mean = gmean(df["Ratio"])
     yearly_geo_mean = monthly_geo_mean**12-1
 
-    return df, monthly_art_mean, yearly_art_mean, monthly_geo_mean, yearly_geo_mean
+    return [df, monthly_art_mean, yearly_art_mean, monthly_geo_mean, yearly_geo_mean]
 
 
 

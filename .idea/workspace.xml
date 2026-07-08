@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="Created monte_carlo but not working properly, its spike up instead of stable dragging up (waiting for debug)">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="The object starts mixing up, currently trying downer service calling up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/monte_carlo.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/monte_carlo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/retirement.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/retirement.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics/returns.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/returns.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics/risk.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/risk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashbroad.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashbroad.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783486253467</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="The object starts mixing up, currently trying downer service calling up">
+      <option name="closed" value="true" />
+      <created>1783519789993</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1783519789993</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,6 +189,7 @@
     <MESSAGE value="monthly_sharpe_ratio around 22, waiting for fact check" />
     <MESSAGE value="current value at retirement age formula" />
     <MESSAGE value="Created monte_carlo but not working properly, its spike up instead of stable dragging up (waiting for debug)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created monte_carlo but not working properly, its spike up instead of stable dragging up (waiting for debug)" />
+    <MESSAGE value="The object starts mixing up, currently trying downer service calling up" />
+    <option name="LAST_COMMIT_MESSAGE" value="The object starts mixing up, currently trying downer service calling up" />
   </component>
 </project>
