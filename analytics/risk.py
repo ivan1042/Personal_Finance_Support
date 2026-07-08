@@ -19,4 +19,9 @@ parametric_VaR = mu - z_score * sigma
 
 
 volatility = np.std(df["%Change"], ddof=1)
-sharpe_ratio = (monthly_geo_mean - ((1 + risk_free)**(1/12) - 1) )/ volatility
+sharpe_ratio = (monthly_geo_mean - ((1 + risk_free)**(1/12) ) )/ volatility
+
+downside_volatility = np.std(df[df["%Change"] <= 0]["%Change"], ddof=1)
+sortino_ratio = (monthly_geo_mean - ((1 + risk_free)**(1/12) ) )/ downside_volatility
+
+max_drawdown = np.min(df["%Change"])
