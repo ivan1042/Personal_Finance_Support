@@ -1,10 +1,10 @@
 import numpy as np
 import scipy.stats as stats
-from analytics.returns import *
+from analytics import returns
 
 confidence_level = 0.95
 risk_free = 0.045
-
+df, monthly_art_mean, yearly_art_mean, monthly_geo_mean, yearly_geo_mean = returns.stats()
 #No assumption
 historical_VaR = np.percentile(df["%Change"], (1 - confidence_level) * 100)
 #print(f"Historical VaR (95% Confidence): {historical_VaR:.2%}")
