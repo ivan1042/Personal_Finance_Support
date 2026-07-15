@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="Converting everything to only pass data by dashbroad, only monte_carlo havent change">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="dashbroad data flow all sorted out, monte_carlo bug still hanging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics/monte_carlo.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/monte_carlo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashbroad.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashbroad.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783521087654</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="dashbroad data flow all sorted out, monte_carlo bug still hanging">
+      <option name="closed" value="true" />
+      <created>1783523242910</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1783523242910</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +203,7 @@
     <MESSAGE value="Created monte_carlo but not working properly, its spike up instead of stable dragging up (waiting for debug)" />
     <MESSAGE value="The object starts mixing up, currently trying downer service calling up" />
     <MESSAGE value="Converting everything to only pass data by dashbroad, only monte_carlo havent change" />
-    <option name="LAST_COMMIT_MESSAGE" value="Converting everything to only pass data by dashbroad, only monte_carlo havent change" />
+    <MESSAGE value="dashbroad data flow all sorted out, monte_carlo bug still hanging" />
+    <option name="LAST_COMMIT_MESSAGE" value="dashbroad data flow all sorted out, monte_carlo bug still hanging" />
   </component>
 </project>

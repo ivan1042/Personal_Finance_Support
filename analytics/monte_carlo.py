@@ -16,7 +16,7 @@ def simulation(raw_mon_return_temp, mon_re_temp, stock = ["VFINX", "AAPL"], weig
     meanM = meanM.T
     portfolio_sim = np.full(shape = (time, max_sim), fill_value = 0.0)
     if len(stock) <= 1:
-        cov_matrix = np.array(return_df ** 2)
+        cov_matrix = return_df.var(ddof = 0)
     else:
         cov_matrix = return_df.cov()
 
