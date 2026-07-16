@@ -9,11 +9,10 @@ def get_historical_data(symbol, start = None, end = datetime.date.today().strfti
     else:
         data = yf.download(symbol, start = start, end = end, interval = interval)
 
-    data.to_csv(f"{symbol}_historical.csv")
     service = Path(__file__).resolve().parent
     file = service / f"{symbol}_historical.csv"
-    target = service.parent / "data"
-    shutil.move(file, target)
-    return target
+    target_folder = service.parent / "data"
+    target_file = target_folder / f"{symbol}_historical.csv"
+    data.to_csv(target_file)
+    return target_folder
 
-get_historical_data("VFINX")

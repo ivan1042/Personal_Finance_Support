@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="dashbroad data flow all sorted out, monte_carlo bug still hanging">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="monte_carlo debugging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/monte_carlo.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/monte_carlo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics/returns.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/returns.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashbroad.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashbroad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/AAPL_historical.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/VFINX_historical.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/VFINX_historical.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/yahoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/yahoo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783523242910</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="monte_carlo debugging">
+      <option name="closed" value="true" />
+      <created>1784127324268</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1784127324269</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,6 +218,7 @@
     <MESSAGE value="The object starts mixing up, currently trying downer service calling up" />
     <MESSAGE value="Converting everything to only pass data by dashbroad, only monte_carlo havent change" />
     <MESSAGE value="dashbroad data flow all sorted out, monte_carlo bug still hanging" />
-    <option name="LAST_COMMIT_MESSAGE" value="dashbroad data flow all sorted out, monte_carlo bug still hanging" />
+    <MESSAGE value="monte_carlo debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="monte_carlo debugging" />
   </component>
 </project>

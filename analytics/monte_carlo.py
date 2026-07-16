@@ -12,7 +12,7 @@ def simulation(raw_mon_return_temp, mon_re_temp, stock = ["VFINX", "AAPL"], weig
     time = (death_age - retire_age) * 12
     initial_amount = 10000
     weight = np.array(weight).T
-    meanM = np.full(shape = (time, len(weight)), fill_value = return_matrix)
+    meanM = np.full(shape = (time, len(weight)), fill_value = return_matrix - 1)
     meanM = meanM.T
     portfolio_sim = np.full(shape = (time, max_sim), fill_value = 0.0)
     if len(stock) <= 1:
