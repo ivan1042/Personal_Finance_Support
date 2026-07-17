@@ -1,31 +1,36 @@
+from service import yahoo
+from service import dataframe
 from analytics import risk
 from analytics import returns
 from analytics import retirement
 from analytics import monte_carlo
-from service import yahoo
+
 
 stocks = ["VFINX", "AAPL"]
 weight = [0.7, 0.3]
+raw_data = []
 data = []
 raw_mon_return_temp = []
 geo_return_temp = []
+
 for stock in stocks:
     yahoo.get_historical_data(stock)
-    data.append(returns.stats(stock))
+    raw_data.append(dataframe.stats(stock))
+
+for k in raw_data:
+    data.append(returns.returns(k))
 
 for k in range(0, len(stocks)):
-    raw_mon_return_temp.append(data[k][0]["%Change"])
-    geo_return_temp.append(data[k][3])
-
+    raw_mon_return_temp.append(raw_data[k]["%Change"])
+    geo_return_temp.append(data[k][2])
+    risk.risk_calc(raw_data[k], *data[k])
 
 for k in data:
-    risk.risk_calc(*k)
-for k in data:
-    retirement.retirement_amount(k[3])
-
-print(raw_mon_return_temp, geo_return_temp, stocks, weight)
+    retirement.retirement_amount(k[2])
 
 monte_carlo.simulation(raw_mon_return_temp, geo_return_temp, stocks, weight )
+
+
 
 """historical_VaR = risk.historical_VaR
 print(returns.monthly_geo_mean)
