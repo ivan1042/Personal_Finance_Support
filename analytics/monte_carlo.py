@@ -1,5 +1,3 @@
-from analytics import returns
-from analytics import risk
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

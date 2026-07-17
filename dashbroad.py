@@ -11,7 +11,7 @@ weight = [0.7, 0.3]
 raw_data = []
 data = []
 raw_mon_return_temp = []
-geo_return_temp = []
+art_return_temp = []
 
 for stock in stocks:
     yahoo.get_historical_data(stock)
@@ -22,13 +22,13 @@ for k in raw_data:
 
 for k in range(0, len(stocks)):
     raw_mon_return_temp.append(raw_data[k]["%Change"])
-    geo_return_temp.append(data[k][2])
+    art_return_temp.append(data[k][0])
     risk.risk_calc(raw_data[k], *data[k])
 
 for k in data:
     retirement.retirement_amount(k[2])
 
-monte_carlo.simulation(raw_mon_return_temp, geo_return_temp, stocks, weight )
+monte_carlo.simulation(raw_mon_return_temp, art_return_temp, stocks, weight )
 
 
 
