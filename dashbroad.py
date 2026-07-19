@@ -1,10 +1,11 @@
 from service import yahoo
 from service import dataframe
+from service import info
 from analytics import risk
 from analytics import returns
 from analytics import retirement
 from analytics import monte_carlo
-
+import pandas as pd
 
 stocks = ["VFINX", "AAPL"]
 weight = [0.7, 0.3]
@@ -12,9 +13,11 @@ raw_data = []
 data = []
 raw_mon_return_temp = []
 art_return_temp = []
+ticker_info = []
 
 for stock in stocks:
     yahoo.get_historical_data(stock)
+    ticker_info.append(info.ticker_info(stock))
     raw_data.append(dataframe.stats(stock))
 
 for k in raw_data:
@@ -30,8 +33,7 @@ for k in data:
 
 monte_carlo.simulation(raw_mon_return_temp, art_return_temp, stocks, weight )
 
-
-
+print(pd.DataFrame(ticker_info))
 """historical_VaR = risk.historical_VaR
 print(returns.monthly_geo_mean)
 print(risk.sharpe_ratio)
