@@ -6,5 +6,5 @@ st.set_page_config(page_title = "Finance Dashboard", page_icon = ":bar_chart:", 
 st.subheader("Welcome to Finance Dashboard")
 st.markdown("##", unsafe_allow_html=True)
 
-st.dataframe(ticker_info, column_order=["Ticker", "Close", "Industry", "Summary"])
+st.dataframe(df_ticker_info)
 st.markdown("##", unsafe_allow_html=True)

@@ -33,7 +33,7 @@ for k in data:
 
 monte_carlo.simulation(raw_mon_return_temp, art_return_temp, stocks, weight )
 
-print(pd.DataFrame(ticker_info))
+df_ticker_info = pd.DataFrame(ticker_info, columns=["Ticker", "Close", "Industry", "Summary"])
 """historical_VaR = risk.historical_VaR
 print(returns.monthly_geo_mean)
 print(risk.sharpe_ratio)
