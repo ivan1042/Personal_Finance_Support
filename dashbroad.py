@@ -7,31 +7,32 @@ from analytics import retirement
 from analytics import monte_carlo
 import pandas as pd
 
-stocks = ["VFINX", "AAPL"]
-weight = [0.7, 0.3]
-raw_data = []
-data = []
-raw_mon_return_temp = []
-art_return_temp = []
-ticker_info = []
+def analysis(stocks = ["VFINX", "AAPL"], weight = [0.7, 0.3]):
+    raw_data = []
+    data = []
+    raw_mon_return_temp = []
+    art_return_temp = []
+    ticker_info = []
 
-for stock in stocks:
-    yahoo.get_historical_data(stock)
-    ticker_info.append(info.ticker_info(stock))
-    raw_data.append(dataframe.stats(stock))
+    for stock in stocks:
+        yahoo.get_historical_data(stock)
+        ticker_info.append(info.ticker_info(stock))
+        raw_data.append(dataframe.stats(stock))
 
-for k in raw_data:
-    data.append(returns.returns(k))
+    for k in raw_data:
+        data.append(returns.returns(k))
 
-for k in range(0, len(stocks)):
-    raw_mon_return_temp.append(raw_data[k]["%Change"])
-    art_return_temp.append(data[k][0])
-    risk.risk_calc(raw_data[k], *data[k])
+    for k in range(0, len(stocks)):
+        raw_mon_return_temp.append(raw_data[k]["%Change"])
+        art_return_temp.append(data[k][0])
+        risk.risk_calc(raw_data[k], *data[k])
 
-for k in data:
-    retirement.retirement_amount(k[2])
+    for k in data:
+        retirement.retirement_amount(k[2])
 
-monte_carlo.simulation(raw_mon_return_temp, art_return_temp, stocks, weight )
+    monte_carlo.simulation(raw_mon_return_temp, art_return_temp, stocks, weight )
+
+    return ticker_info
 
 
 """historical_VaR = risk.historical_VaR

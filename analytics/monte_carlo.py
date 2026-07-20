@@ -24,5 +24,4 @@ def simulation(raw_mon_return_temp, mon_re_temp, stock = ["VFINX", "AAPL"], weig
         monthly_return = meanM + np.inner(L, Z)
         portfolio_sim[: ,m] = np.cumprod(np.inner(weight, monthly_return.T + 1)) * initial_amount
 
-    plt.plot(portfolio_sim)
-    plt.show()
+    return portfolio_sim
