@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="waiting to make filter">
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="idk why raw-dog calling function is okay, but not working inside if st.button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics/monte_carlo.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics/monte_carlo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashbroad.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashbroad.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/AAPL_historical.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/AAPL_historical.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/VFINX_historical.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/VFINX_historical.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpage.py" beforeDir="false" afterPath="$PROJECT_DIR$/webpage.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784473147793</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="idk why raw-dog calling function is okay, but not working inside if st.button">
+      <option name="closed" value="true" />
+      <created>1784520955965</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1784520955965</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,6 +281,7 @@
     <MESSAGE value="started building dashborad, but the design progress is not ideal" />
     <MESSAGE value="created info miner, start making dashborad, but issue importing dashbroad to webpage" />
     <MESSAGE value="waiting to make filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="waiting to make filter" />
+    <MESSAGE value="idk why raw-dog calling function is okay, but not working inside if st.button" />
+    <option name="LAST_COMMIT_MESSAGE" value="idk why raw-dog calling function is okay, but not working inside if st.button" />
   </component>
 </project>

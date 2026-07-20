@@ -7,7 +7,7 @@ from analytics import retirement
 from analytics import monte_carlo
 import pandas as pd
 
-def analysis(stocks = ["VFINX", "AAPL"], weight = [0.7, 0.3]):
+def analysis(stocks = ["VFINX", "AAPL"], weight = [0.7, 0.3], timeframe = 40):
     raw_data = []
     data = []
     raw_mon_return_temp = []
@@ -30,9 +30,9 @@ def analysis(stocks = ["VFINX", "AAPL"], weight = [0.7, 0.3]):
     for k in data:
         retirement.retirement_amount(k[2])
 
-    monte_carlo.simulation(raw_mon_return_temp, art_return_temp, stocks, weight )
+    sim_result = monte_carlo.simulation(raw_mon_return_temp, art_return_temp, stocks, weight, timeframe)
 
-    return ticker_info
+    return ticker_info, sim_result
 
 
 """historical_VaR = risk.historical_VaR
