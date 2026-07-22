@@ -11,32 +11,38 @@ from analytics import retirement
 from analytics import monte_carlo
 
 
-def analysis(stocks = ["VFINX", "AAPL"], weight = [0.7, 0.3], timeframe = 40):
-    raw_data = []
-    data = []
-    raw_mon_return_temp = []
-    art_return_temp = []
-    ticker_info = []
+class analysis(stocks = ["VFINX", "AAPL"], weight = [0.7, 0.3], timeframe = 40):
+    def __init__(self, stocks, weight, timeframe):
+        self.stocks = stocks
+        self.weight = weight
+        self.timeframe = timeframe
 
-    for stock in stocks:
-        yahoo.get_historical_data(stock)
-        ticker_info.append(info.ticker_info(stock))
-        raw_data.append(dataframe.stats(stock))
+        self.raw_data = []
+        self.data = []
+        self.raw_mon_return_temp = []
+        self.art_return_temp = []
+        self.ticker_info = []
 
-    for k in raw_data:
-        data.append(returns.returns(k))
 
-    for k in range(0, len(stocks)):
-        raw_mon_return_temp.append(raw_data[k]["%Change"])
-        art_return_temp.append(data[k][0])
-        risk.risk_calc(raw_data[k], *data[k])
+        for stock in self.stocks:
+            yahoo.get_historical_data(stock)
+            self.ticker_info.append(info.ticker_info(stock))
+            self.raw_data.append(dataframe.stats(stock))
 
-    for k in data:
-        retirement.retirement_amount(k[2])
+        for k in self.raw_data:
+            self.data.append(returns.returns(k))
 
-    sim_result = monte_carlo.simulation(raw_mon_return_temp, art_return_temp, stocks, weight, timeframe)
+        for k in range(0, len(stocks)):
+            self.raw_mon_return_temp.append(self.raw_data[k]["%Change"])
+            self.art_return_temp.append(self.data[k][0])
+            risk.risk_calc(self.raw_data[k], *self.data[k])
 
-    return ticker_info, sim_result
+        for k in self.data:
+            retirement.retirement_amount(k[2])
+
+        sim_result = monte_carlo.simulation(self.raw_mon_return_temp, self.art_return_temp, stocks, weight, timeframe)
+
+
 
 
 """historical_VaR = risk.historical_VaR

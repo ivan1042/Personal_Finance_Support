@@ -60,16 +60,16 @@ if submit:
     stripped_stock = [item.strip() for item in stocks_list]
     weight_list = weights.split(",")
     stripped_weight = [float(item.strip()) for item in weight_list]
-    result, sim_result = dashbroad.analysis(stripped_stock, stripped_weight)
+    analyzed = dashbroad.analysis(stripped_stock, stripped_weight)
 
     # Metrics
-    st.metric("Expected Return", f"{result.expected_return:.2%}")
-    st.metric("Sharpe", f"{result.sharpe:.2f}")
+    st.metric("Expected Return", f"{analyzed.expected_return:.2%}")
+    st.metric("Sharpe", f"{analyzed.sharpe:.2f}")
 
     # Charts
-    st.plotly_chart(result.allocation_chart)
-    st.plotly_chart(result.mc_chart)
-    st.plotly_chart(result.history_chart)
+    st.plotly_chart(analyzed.allocation_chart)
+    st.plotly_chart(analyzed.mc_chart)
+    st.plotly_chart(analyzed.history_chart)
 
 # ==========================================
 # RIGHT PANEL

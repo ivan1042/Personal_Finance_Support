@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="rewired all file to make project b coexist">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="trying to implement analysis output to reference and see the prototype, but deciding if make analysis output dataclass">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Porfolio Dashbroad/dashbroad.py" beforeDir="false" afterPath="$PROJECT_DIR$/Porfolio Dashbroad/dashbroad.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Porfolio Dashbroad/reference.py" beforeDir="false" afterPath="$PROJECT_DIR$/Porfolio Dashbroad/reference.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784691073236</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="trying to implement analysis output to reference and see the prototype, but deciding if make analysis output dataclass">
+      <option name="closed" value="true" />
+      <created>1784693694889</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1784693694889</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -310,7 +319,8 @@
     <MESSAGE value="idk why raw-dog calling function is okay, but not working inside if st.button" />
     <MESSAGE value="figured out calling dashbraod issue, waiting to improve the webpage" />
     <MESSAGE value="rewired all file to make project b coexist" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewired all file to make project b coexist" />
+    <MESSAGE value="trying to implement analysis output to reference and see the prototype, but deciding if make analysis output dataclass" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to implement analysis output to reference and see the prototype, but deciding if make analysis output dataclass" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
