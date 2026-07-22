@@ -12,6 +12,7 @@ def get_historical_data(symbol, start = None, end = datetime.date.today().strfti
     service = Path(__file__).resolve().parent
     file = service / f"{symbol}_historical.csv"
     target_folder = service.parent / "data"
+    target_folder.mkdir(parents = True, exist_ok = True)
     target_file = target_folder / f"{symbol}_historical.csv"
     data.to_csv(target_file)
     return target_folder
