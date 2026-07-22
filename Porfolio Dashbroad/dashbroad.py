@@ -1,3 +1,7 @@
+from pathlib import Path
+import sys
+service_root = Path(__file__).resolve().parent.parent
+sys.path.append(str(service_root))
 from service import yahoo
 from service import dataframe
 from service import info
@@ -5,7 +9,7 @@ from analytics import risk
 from analytics import returns
 from analytics import retirement
 from analytics import monte_carlo
-import pandas as pd
+
 
 def analysis(stocks = ["VFINX", "AAPL"], weight = [0.7, 0.3], timeframe = 40):
     raw_data = []

@@ -1,7 +1,6 @@
 import streamlit as st
 import dashbroad
 import pandas as pd
-import plotly.express as px
 
 st.set_page_config(page_title = "Finance Dashboard", page_icon = ":bar_chart:", layout="wide")
 st.subheader("Welcome to Finance Dashboard")
