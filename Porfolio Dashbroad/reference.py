@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import dashbroad
 
 st.set_page_config(
     page_title="Personal Finance Support",
@@ -53,6 +54,22 @@ with left:
         "Analyze Portfolio",
         use_container_width=True
     )
+
+if submit:
+    stocks_list = stocks.split(",")
+    stripped_stock = [item.strip() for item in stocks_list]
+    weight_list = weights.split(",")
+    stripped_weight = [float(item.strip()) for item in weight_list]
+    result, sim_result = dashbroad.analysis(stripped_stock, stripped_weight)
+
+    # Metrics
+    st.metric("Expected Return", f"{result.expected_return:.2%}")
+    st.metric("Sharpe", f"{result.sharpe:.2f}")
+
+    # Charts
+    st.plotly_chart(result.allocation_chart)
+    st.plotly_chart(result.mc_chart)
+    st.plotly_chart(result.history_chart)
 
 # ==========================================
 # RIGHT PANEL
@@ -171,14 +188,3 @@ st.plotly_chart(
     use_container_width=True
 )
 
-if submit:
-    result = analysis(stocks, weights)
-
-    # Metrics
-    st.metric("Expected Return", f"{result.expected_return:.2%}")
-    st.metric("Sharpe", f"{result.sharpe:.2f}")
-
-    # Charts
-    st.plotly_chart(result.allocation_chart)
-    st.plotly_chart(result.mc_chart)
-    st.plotly_chart(result.history_chart)
