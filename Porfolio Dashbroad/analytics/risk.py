@@ -28,4 +28,4 @@ def risk_calc(df, monthly_art_mean, yearly_art_mean, monthly_geo_mean, yearly_ge
 
     max_drawdown = np.min(df["%Change"])
 
-    return [historical_VaR, parametric_VaR, sharpe_ratio, sortino_ratio, max_drawdown]
+    return [historical_VaR, parametric_VaR, sharpe_ratio, sortino_ratio, max_drawdown, volatility]

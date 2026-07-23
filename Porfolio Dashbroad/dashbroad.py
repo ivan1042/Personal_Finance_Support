@@ -29,6 +29,7 @@ class analysis():
         self.sharpe_ratio = []
         self.sortino_ratio = []
         self.max_drawdown = []
+        self.volatility = []
 
         for stock in self.stocks:
             yahoo.get_historical_data(stock)
@@ -44,17 +45,18 @@ class analysis():
         for k in range(0, len(stocks)):
             self.raw_mon_return_temp.append(self.raw_data[k]["%Change"])
             self.monthly_art_mean.append(self.data[k][0])
-            self.monthly_geo_mean.append(self.raw_data[k][2])
+            self.monthly_geo_mean.append(self.data[k][2])
             self.historical_VaR.append(self.risk_data[k][0])
             self.parametric_VaR.append(self.risk_data[k][1])
-            self.sharpe_ratio.append(self.risk_data[k][3])
-            self.sortino_ratio.append(self.risk_data[k][4])
-            self.max_drawdown.append(self.risk_data[k][5])
+            self.sharpe_ratio.append(self.risk_data[k][2])
+            self.sortino_ratio.append(self.risk_data[k][3])
+            self.max_drawdown.append(self.risk_data[k][4])
+            self.volatility.append(self.risk_data[k][5])
 
 
         for k in self.data:
             retirement.retirement_amount(k[2])
 
-        self.sim_result = monte_carlo.simulation(self.raw_mon_return_temp, self.art_return_temp, self.stocks, self.weight, self.timeframe)
+        self.sim_result = monte_carlo.simulation(self.raw_mon_return_temp, self.monthly_art_mean, self.stocks, self.weight, self.timeframe)
 
 

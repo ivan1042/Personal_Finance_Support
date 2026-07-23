@@ -2,7 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from sympy.core.evalf import fastlog
+
 import dashbroad
+from analytics.weighted import weight
 
 st.set_page_config(
     page_title="Personal Finance Support",
@@ -63,14 +66,16 @@ if submit:
     analyzed = dashbroad.analysis(stripped_stock, stripped_weight, years)
 
     # Metrics
-    weighted_return = sum(x * y for x, y in zip(stripped_weight, dashbroad.analysis().art_return_temp))
-    st.metric("Expected Return", f"{weighted_return:.2%}")
-    st.metric("Sharpe", f"{analyzed.sharpe:.2f}")
+    weighted_return = weight(stripped_weight, dashbroad.analysis().monthly_art_mean)
+    weighted_sharpe = weight(stripped_weight, dashbroad.analysis().sharpe_ratio)
+    weighted_volatility = weight(stripped_weight, dashbroad.analysis().volatility)
+    st.metric("Expected Monthly Return", f"{(weighted_return - 1) / 100:.2%}")
+    st.metric("Sharpe", f"{weighted_sharpe:.2f}")
 
     # Charts
-    st.plotly_chart(analyzed.allocation_chart)
-    st.plotly_chart(analyzed.mc_chart)
-    st.plotly_chart(analyzed.history_chart)
+#    st.plotly_chart(analyzed.allocation_chart)
+#    st.plotly_chart(analyzed.mc_chart)
+#    st.plotly_chart(analyzed.history_chart)
 
 # ==========================================
 # RIGHT PANEL
@@ -84,32 +89,22 @@ if submit:
 
         metric1.metric(
             "Expected Return",
-            "12.3%"
+            weighted_return
         )
 
         metric2.metric(
             "Volatility",
-            "18.1%"
+            weighted_volatility
         )
 
         metric3.metric(
             "Sharpe",
-            "1.04"
+            weighted_sharpe
         )
 
-        st.info(
-            """
-            Portfolio description will appear here.
-    
-            Company information
-    
-            Sector Allocation
-    
-            Market Cap
-    
-            Investment Thesis
-            """
-        )
+        df_ticker_info = pd.DataFrame(dashbroad.analysis().ticker_info, columns=["Ticker", "Close", "Industry", "Summary"])
+        df_ticker_info.set_index(df_ticker_info.columns[0], inplace=True)
+        st.dataframe(df_ticker_info)
 
     # ==========================================
     # Charts
@@ -139,13 +134,8 @@ if submit:
 
         st.subheader("Monte Carlo")
 
-        fig = go.Figure()
-
-        fig.add_trace(
-            go.Scatter(
-                y=[100,103,105,109,115],
-                mode="lines"
-            )
+        fig = px.line(
+                dashbroad.analysis().sim_result
         )
 
         st.plotly_chart(
