@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from sympy.core.evalf import fastlog
+#from sympy.core.evalf import fastlog
 
 import dashbroad
 from analytics.weighted import weight
@@ -69,7 +69,10 @@ if submit:
     weighted_return = weight(stripped_weight, dashbroad.analysis().monthly_art_mean)
     weighted_sharpe = weight(stripped_weight, dashbroad.analysis().sharpe_ratio)
     weighted_volatility = weight(stripped_weight, dashbroad.analysis().volatility)
-    st.metric("Expected Monthly Return", f"{(weighted_return - 1) / 100:.2%}")
+    weighted_historical_VaR = weight(stripped_weight, dashbroad.analysis().historical_VaR)
+    weighted_sortino_ratio = weight(stripped_weight, dashbroad.analysis().sortino_ratio)
+    weighted_max_drawdown = weight(stripped_weight, dashbroad.analysis().max_drawdown)
+    st.metric("Expected Monthly Return", f"{(weighted_return - 1):.2%}")
     st.metric("Sharpe", f"{weighted_sharpe:.2f}")
 
     # Charts
@@ -149,11 +152,11 @@ if submit:
 
         st.subheader("Risk")
 
-        st.metric("VaR", "-6.2%")
+        st.metric("VaR", weighted_historical_VaR)
 
-        st.metric("Max DD", "-18%")
+        st.metric("Max DD", weighted_max_drawdown)
 
-        st.metric("Sortino", "1.38")
+        st.metric("Sortino", weighted_sortino_ratio)
 
     st.divider()
 
@@ -163,15 +166,11 @@ if submit:
 
     st.subheader("Historical Portfolio Performance")
 
-    price = pd.DataFrame({
-        "Date": pd.date_range("2024-01-01", periods=20),
-        "Value":[100+i*2 for i in range(20)]
-    })
 
     fig = px.line(
-        price,
-        x="Date",
-        y="Value"
+        dashbroad.analysis().historical_return,
+        x = "index",
+        y = "%Change"
     )
 
     st.plotly_chart(

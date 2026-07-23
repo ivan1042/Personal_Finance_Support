@@ -21,6 +21,7 @@ class analysis():
         self.data = []
         self.risk_data = []
         self.raw_mon_return_temp = []
+        self.raw_mon_close = []
         self.monthly_art_mean = []
         self.monthly_geo_mean = []
         self.ticker_info = []
@@ -32,7 +33,7 @@ class analysis():
         self.volatility = []
 
         for stock in self.stocks:
-            yahoo.get_historical_data(stock)
+            #yahoo.get_historical_data(stock)
             self.ticker_info.append(info.ticker_info(stock))
             self.raw_data.append(dataframe.stats(stock))
 
@@ -43,6 +44,7 @@ class analysis():
             self.risk_data.append(risk.risk_calc(self.raw_data[k], *self.data[k]))
 
         for k in range(0, len(stocks)):
+            self.raw_mon_close.append(self.raw_data[k]["Close"])
             self.raw_mon_return_temp.append(self.raw_data[k]["%Change"])
             self.monthly_art_mean.append(self.data[k][0])
             self.monthly_geo_mean.append(self.data[k][2])
@@ -58,5 +60,5 @@ class analysis():
             retirement.retirement_amount(k[2])
 
         self.sim_result = monte_carlo.simulation(self.raw_mon_return_temp, self.monthly_art_mean, self.stocks, self.weight, self.timeframe)
-
+        self.historical_return = returns.port_hist(self.raw_mon_close, self.weight)
 
