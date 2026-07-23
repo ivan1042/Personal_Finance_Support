@@ -168,9 +168,7 @@ if submit:
 
 
     fig = px.line(
-        dashbroad.analysis().historical_return,
-        x = "index",
-        y = "%Change"
+        dashbroad.analysis().historical_return
     )
 
     st.plotly_chart(

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="uploading design reference">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="Fixed hist chart">
       <change beforePath="$PROJECT_DIR$/.idea/Personal Finance Support.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Personal Finance Support.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -287,6 +287,7 @@
     <MESSAGE value="created info miner, start making dashborad, but issue importing dashbroad to webpage" />
     <MESSAGE value="waiting to make filter" />
     <MESSAGE value="idk why raw-dog calling function is okay, but not working inside if st.button" />
-    <option name="LAST_COMMIT_MESSAGE" value="idk why raw-dog calling function is okay, but not working inside if st.button" />
+    <MESSAGE value="Fixed hist chart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed hist chart" />
   </component>
 </project>
