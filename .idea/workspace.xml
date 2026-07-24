@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="starting parameter analysis">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="versioned appl rolling volatility and beta, but timeframe is not clear">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stock analysis/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/parameter.py" afterDir="false" />
     </list>
@@ -288,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784797671792</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="versioned appl rolling volatility and beta, but timeframe is not clear">
+      <option name="closed" value="true" />
+      <created>1784806143640</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1784806143640</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,6 +347,7 @@
     <MESSAGE value="trying to implement analysis output to reference and see the prototype, but deciding if make analysis output dataclass" />
     <MESSAGE value="Converting to oop, half way done" />
     <MESSAGE value="starting parameter analysis" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting parameter analysis" />
+    <MESSAGE value="versioned appl rolling volatility and beta, but timeframe is not clear" />
+    <option name="LAST_COMMIT_MESSAGE" value="versioned appl rolling volatility and beta, but timeframe is not clear" />
   </component>
 </project>
