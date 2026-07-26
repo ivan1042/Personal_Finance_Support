@@ -4,9 +4,9 @@ from pathlib import Path
 current = Path(__file__).resolve().parent
 data = current.parent / "data"
 
-def stats(stock_code = "VFINX"):
+def stats(stock_code = "VFINX", interval = "1mo"):
     for item in data.iterdir():
-        if stock_code in item.name:
+        if f"{stock_code}_{interval}" in item.name:
             df = pd.read_csv(item, header = 0, index_col = 0, skiprows = [1, 2])
             df.index.name = "date"
     df = df.drop(columns = ["High", "Low", "Open", "Volume"])

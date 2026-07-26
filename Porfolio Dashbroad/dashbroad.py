@@ -33,7 +33,7 @@ class analysis():
         self.volatility = []
 
         for stock in self.stocks:
-            #yahoo.get_historical_data(stock)
+            yahoo.get_historical_data(stock)
             self.ticker_info.append(info.ticker_info(stock))
             self.raw_data.append(dataframe.stats(stock))
 

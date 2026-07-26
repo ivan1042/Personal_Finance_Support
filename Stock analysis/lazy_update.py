@@ -5,13 +5,13 @@ sys.path.append(str(service_root))
 from service import yahoo
 from service import dataframe
 
-def csv_checker(stock: str):
-    target_path = Path(__file__).resolve().parent.parent / "data" / f"{stock}_historical.csv"
+def csv_checker(stock: str, interval = '1mo'):
+    target_path = Path(__file__).resolve().parent.parent / "data" / f"{stock}_{interval}_historical.csv"
     if target_path.exists():
-        print(f"Found match:{stock}_historical.csv")
+        print(f"Found match:{stock}_{interval}_historical.csv")
     else:
-        yahoo.get_historical_data(stock)
+        yahoo.get_historical_data(stock, interval)
 
-def to_dataframe(stock: str):
+def to_dataframe(stock: str, interval = '1mo'):
 
-    return dataframe.stats(stock)
+    return dataframe.stats(stock, interval)

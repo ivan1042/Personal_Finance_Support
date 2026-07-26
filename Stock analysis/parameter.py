@@ -5,14 +5,15 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 
 stocks = ["AAPL", "VFINX"]
+interval = "1d"
 
 for stock in stocks:
-    lazy_update.csv_checker(stock)
+    lazy_update.csv_checker(stock, interval)
 
 
 
-df_AAPL = lazy_update.to_dataframe("AAPL")
-df_VFINX = lazy_update.to_dataframe("VFINX")
+df_AAPL = lazy_update.to_dataframe("AAPL", interval)
+df_VFINX = lazy_update.to_dataframe("VFINX", interval)
 df_AAPL["Volatility"] = df_AAPL['%Change'].rolling(window=36).std()
 df_AAPL["Beta"] = df_AAPL["%Change"].rolling(window=36).cov(df_VFINX["%Change"]) / (df_AAPL["Volatility"]) ** 2
 
@@ -36,12 +37,14 @@ with left:
         use_container_width=True,
     )
 
-    fig_3 = px.histogram(df_AAPL["%Change"], nbins=50)
+    st.subheader("Daily return distribution")
+    fig_3 = px.histogram(df_AAPL["%Change"], nbins=100)
     st.plotly_chart(fig_3,
                     use_container_width=True
                     )
 
-    fig_5 = px.histogram(df_AAPL["%Change"].loc['2018-01-01':'2025-03-31'], nbins=50)
+    st.subheader("Recent 7 years daily return distribution")
+    fig_5 = px.histogram(df_AAPL["%Change"].loc['2018-01-01':'2025-03-31'], nbins=100)
     st.plotly_chart(fig_5,
                     use_container_width=True
                     )
@@ -55,11 +58,10 @@ with right:
         use_container_width=True,
     )
 
-
+    st.subheader("Beta and close chart")
     df_2 = df_AAPL.drop(columns=["Change", "Ratio", "Volatility", "%Change"])
     fig_4 = make_subplots(
         specs=[[{"secondary_y": True}]],
-        subplot_titles=("Monthly Revenue and Growth Rate",),
     )
     fig_4_close = px.line(df_2["Close"])
     fig_4_beta = px.line(df_2["Beta"])
