@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="why stock can grow with return ~ N(0, 1)">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="convert data to specify interval">
+      <change afterPath="$PROJECT_DIR$/Stock analysis/visualization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Porfolio Dashbroad/dashbroad.py" beforeDir="false" afterPath="$PROJECT_DIR$/Porfolio Dashbroad/dashbroad.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stock analysis/lazy_update.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/lazy_update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stock analysis/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/dataframe.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/dataframe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/yahoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/yahoo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784870743709</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="convert data to specify interval">
+      <option name="closed" value="true" />
+      <created>1785051502861</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1785051502861</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,7 +341,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="analytics successfully fetching the data" />
     <MESSAGE value="Got historic and parametric VaR, the diff is quite big" />
     <MESSAGE value="Made geo_mean" />
     <MESSAGE value="art, geo mean, volatility, VaR" />
@@ -360,6 +365,7 @@
     <MESSAGE value="starting parameter analysis" />
     <MESSAGE value="versioned appl rolling volatility and beta, but timeframe is not clear" />
     <MESSAGE value="why stock can grow with return ~ N(0, 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="why stock can grow with return ~ N(0, 1)" />
+    <MESSAGE value="convert data to specify interval" />
+    <option name="LAST_COMMIT_MESSAGE" value="convert data to specify interval" />
   </component>
 </project>

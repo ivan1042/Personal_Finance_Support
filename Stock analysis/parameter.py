@@ -1,8 +1,7 @@
 import lazy_update
 import matplotlib.pyplot as plt
-import streamlit as st
-import plotly.express as px
-from plotly.subplots import make_subplots
+import pandas as pd
+import numpy as np
 
 stocks = ["AAPL", "VFINX"]
 interval = "1d"
@@ -10,66 +9,44 @@ interval = "1d"
 for stock in stocks:
     lazy_update.csv_checker(stock, interval)
 
+target = "GOOG"
 
-
-df_AAPL = lazy_update.to_dataframe("AAPL", interval)
+df = lazy_update.to_dataframe(target, interval)
 df_VFINX = lazy_update.to_dataframe("VFINX", interval)
-df_AAPL["Volatility"] = df_AAPL['%Change'].rolling(window=36).std()
-df_AAPL["Beta"] = df_AAPL["%Change"].rolling(window=36).cov(df_VFINX["%Change"]) / (df_AAPL["Volatility"]) ** 2
+df["Volatility"] = df['%Change'].rolling(window=36).std()
+df["Beta"] = df["%Change"].rolling(window=36).cov(df_VFINX["%Change"]) / (df["Volatility"]) ** 2
 
-"""print(df_AAPL)
-df_AAPL.drop(columns = ["Close", "Change", "Ratio"], inplace = True)
-for col in df_AAPL:
-    plt.plot(df_AAPL[col], label = col)
-    plt.legend()
-plt.show()"""
 
-st.set_page_config(layout="wide")
-left, right = st.columns([1,1])
+temp = df["Close"]
+df.drop(columns = ["Close"], inplace = True)
+df = (df - df.mean()) / df.std()
+df["Close"] = temp
+df["Non-systematic"] =df["Volatility"] - df["Beta"]
 
-with left:
-    st.subheader("close")
+df["Signal"] = 0
+df["Signal"] = np.where(
+    (df["Beta"] > 2),
+    1,
+    df["Signal"],
+)
+df["Signal"] = np.where(
+    (df["Beta"] <= -1) & (df["Volatility"] <= 0),
+    -1,
+    df["Signal"],
+)
 
-    fig_1 = px.line(df_AAPL["Close"]
-    )
-    st.plotly_chart(
-        fig_1,
-        use_container_width=True,
-    )
+df["Buy"] = np.where(df["Signal"] == 1, df["Close"], np.nan)
+df["Sell"] = np.where(df["Signal"] == -1, df["Close"], np.nan)
+clean_buys = df["Buy"].dropna()
+clean_sells = df["Sell"].dropna()
 
-    st.subheader("Daily return distribution")
-    fig_3 = px.histogram(df_AAPL["%Change"], nbins=100)
-    st.plotly_chart(fig_3,
-                    use_container_width=True
-                    )
 
-    st.subheader("Recent 7 years daily return distribution")
-    fig_5 = px.histogram(df_AAPL["%Change"].loc['2018-01-01':'2025-03-31'], nbins=100)
-    st.plotly_chart(fig_5,
-                    use_container_width=True
-                    )
-with right:
-    st.subheader("%change, volatility and beta")
-    df_1 = df_AAPL.drop(columns=["Close", "Change", "Ratio"])
-    fig_2 = px.line(df_1
-                    )
-    st.plotly_chart(
-        fig_2,
-        use_container_width=True,
-    )
-
-    st.subheader("Beta and close chart")
-    df_2 = df_AAPL.drop(columns=["Change", "Ratio", "Volatility", "%Change"])
-    fig_4 = make_subplots(
-        specs=[[{"secondary_y": True}]],
-    )
-    fig_4_close = px.line(df_2["Close"])
-    fig_4_beta = px.line(df_2["Beta"])
-    fig_4_beta.update_traces(yaxis="y2", line=dict(color="red"))
-
-    fig_4.add_traces(fig_4_close.data + fig_4_beta.data)
-
-    st.plotly_chart(
-        fig_4,
-        use_container_width=True,
-    )
+plt.plot(df["Close"], label="Close Price")
+plt.scatter(
+    clean_buys.index, clean_buys, label="Buy Signal", marker="^", color="green", s=100
+)
+plt.scatter(
+    clean_sells.index, clean_sells, label="Sell Signal", marker="v", color="red", s=100
+)
+plt.legend()
+plt.show()

@@ -5,7 +5,7 @@ sys.path.append(str(service_root))
 from service import yahoo
 from service import dataframe
 
-def csv_checker(stock: str, interval = '1mo'):
+def csv_checker(stock: str, interval):
     target_path = Path(__file__).resolve().parent.parent / "data" / f"{stock}_{interval}_historical.csv"
     if target_path.exists():
         print(f"Found match:{stock}_{interval}_historical.csv")
