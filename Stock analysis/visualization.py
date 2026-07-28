@@ -53,8 +53,8 @@ with right:
     fig_4 = make_subplots(
         specs=[[{"secondary_y": True}]],
     )
-    fig_4_close = px.line(df_2["Close"])
-    fig_4_beta = px.line(df_2["Non-systematic"])
+    fig_4_close = px.line(df["Close"])
+    fig_4_beta = px.line(df["Non-systematic"])
     fig_4_beta.update_traces(yaxis="y2", line=dict(color="orange"))
 
     fig_4.add_traces(fig_4_close.data + fig_4_beta.data)

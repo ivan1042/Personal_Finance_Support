@@ -3,13 +3,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-stocks = ["AAPL", "VFINX"]
+target = "GOOG"
+stocks = [target, "VFINX"]
 interval = "1d"
 
 for stock in stocks:
     lazy_update.csv_checker(stock, interval)
 
-target = "GOOG"
+
 
 df = lazy_update.to_dataframe(target, interval)
 df_VFINX = lazy_update.to_dataframe("VFINX", interval)
