@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="Is buying at top volatility a strat?">
-      <change afterPath="$PROJECT_DIR$/Stock analysis/backtest.py" afterDir="false" />
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="using streamlit to visualize trading strat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stock analysis/backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/backtest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stock analysis/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stock analysis/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785138319343</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="using streamlit to visualize trading strat">
+      <option name="closed" value="true" />
+      <created>1785220067001</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1785220067001</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,7 +357,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made geo_mean" />
     <MESSAGE value="art, geo mean, volatility, VaR" />
     <MESSAGE value="monthly_sharpe_ratio around 22, waiting for fact check" />
     <MESSAGE value="current value at retirement age formula" />
@@ -375,6 +381,7 @@
     <MESSAGE value="why stock can grow with return ~ N(0, 1)" />
     <MESSAGE value="convert data to specify interval" />
     <MESSAGE value="Is buying at top volatility a strat?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Is buying at top volatility a strat?" />
+    <MESSAGE value="using streamlit to visualize trading strat" />
+    <option name="LAST_COMMIT_MESSAGE" value="using streamlit to visualize trading strat" />
   </component>
 </project>

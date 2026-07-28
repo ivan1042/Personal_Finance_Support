@@ -26,15 +26,29 @@ df["Non-systematic"] =df["Volatility"] - df["Beta"]
 
 df["Signal"] = 0
 df["Signal"] = np.where(
-    (df["Beta"] > 2),
+    (df["Beta"] > 2) ,
     1,
     df["Signal"],
 )
 df["Signal"] = np.where(
-    (df["Beta"] <= -1) & (df["Volatility"] <= 0),
+    (df["Beta"] <= -1) & (df["Volatility"] <= 0) ,
     -1,
     df["Signal"],
 )
+
+prev_signal = df["Signal"].shift(1)
+
+df["Clean_signal"] = np.where(
+    (df["Signal"] > 0) & (prev_signal != 1),
+    df["Signal"],
+    np.where(
+        (df["Signal"] < 0) & (prev_signal != -1),
+        df["Signal"],
+        np.nan
+    )
+)
+
+df["Signal"] = df["Clean_signal"]
 
 df["Buy"] = np.where(df["Signal"] == 1, df["Close"], np.nan)
 df["Sell"] = np.where(df["Signal"] == -1, df["Close"], np.nan)
@@ -42,12 +56,5 @@ clean_buys = df["Buy"].dropna()
 clean_sells = df["Sell"].dropna()
 
 
-plt.plot(df["Close"], label="Close Price")
-plt.scatter(
-    clean_buys.index, clean_buys, label="Buy Signal", marker="^", color="green", s=100
-)
-plt.scatter(
-    clean_sells.index, clean_sells, label="Sell Signal", marker="v", color="red", s=100
-)
-plt.legend()
-plt.show()
+
+

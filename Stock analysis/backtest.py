@@ -16,3 +16,4 @@ st.plotly_chart(
     fig_1,
     width='stretch'
 )
+
