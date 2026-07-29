@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-target = "GOOG"
+target = "NVDA"
 stocks = [target, "VFINX"]
 interval = "1d"
 
@@ -24,37 +24,35 @@ df = (df - df.mean()) / df.std()
 df["Close"] = temp
 df["Non-systematic"] =df["Volatility"] - df["Beta"]
 
-df["Signal"] = 0
-df["Signal"] = np.where(
-    (df["Beta"] > 2) ,
-    1,
-    df["Signal"],
-)
-df["Signal"] = np.where(
-    (df["Beta"] <= -1) & (df["Volatility"] <= 0) ,
-    -1,
-    df["Signal"],
+
+
+df["Top_vo"] = None
+df["Top_vo"] = np.where(
+    df["Volatility"] >= df["Volatility"].quantile(0.95) ,
+    df["Close"],
+    df["Top_vo"],
 )
 
-prev_signal = df["Signal"].shift(1)
-
-df["Clean_signal"] = np.where(
-    (df["Signal"] > 0) & (prev_signal != 1),
-    df["Signal"],
-    np.where(
-        (df["Signal"] < 0) & (prev_signal != -1),
-        df["Signal"],
-        np.nan
-    )
+df["Top_be"] = None
+df["Top_be"] = np.where(
+    df["Beta"] >= df["Beta"].quantile(0.95) ,
+    df["Close"],
+    df["Top_be"],
 )
 
-df["Signal"] = df["Clean_signal"]
+df["Buttom_vo"] = None
+df["Buttom_vo"] = np.where(
+    df["Volatility"] <= df["Volatility"].quantile(0.05) ,
+    df["Close"],
+    df["Buttom_vo"],
+)
 
-df["Buy"] = np.where(df["Signal"] == 1, df["Close"], np.nan)
-df["Sell"] = np.where(df["Signal"] == -1, df["Close"], np.nan)
-clean_buys = df["Buy"].dropna()
-clean_sells = df["Sell"].dropna()
-
+df["Buttom_be"] = None
+df["Buttom_be"] = np.where(
+    df["Beta"] <= df["Beta"].quantile(0.05) ,
+    df["Close"],
+    df["Buttom_be"],
+)
 
 
 

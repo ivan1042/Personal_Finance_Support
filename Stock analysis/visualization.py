@@ -9,10 +9,21 @@ st.set_page_config(layout="wide")
 left, right = st.columns([1,1])
 
 with left:
-    st.subheader("close")
+    st.subheader(f"{target} close")
 
-    fig_1 = px.line(df["Close"]
-    )
+    fig_1 = make_subplots()
+    fig_1_close = px.line(df["Close"])
+    fig_1_top_vo = px.scatter(df["Top_vo"])
+    fig_1_top_be = px.scatter(df["Top_be"])
+    fig_1_buttom_vo = px.scatter(df["Buttom_vo"])
+    fig_1_buttom_be = px.scatter(df["Buttom_be"])
+    fig_1_top_vo.update_traces(marker=dict(color="green"))
+    fig_1_top_be.update_traces(marker=dict(color="red"))
+    fig_1_buttom_vo.update_traces(marker=dict(color="blue"))
+    fig_1_buttom_be.update_traces(marker=dict(color="orange"))
+
+    fig_1.add_traces(fig_1_close.data + fig_1_top_vo.data + fig_1_top_be.data + fig_1_buttom_vo.data + fig_1_buttom_be.data)
+
     st.plotly_chart(
         fig_1,
         width='stretch'
@@ -30,7 +41,7 @@ with left:
                     width='stretch'
                     )
 with right:
-    st.subheader("close")
+    st.subheader("VOO close")
 
     fig_6 = px.line(df_VFINX["Close"]
                     )
@@ -40,7 +51,7 @@ with right:
     )
 
     st.subheader("%change, volatility and beta")
-    df_1 = df.drop(columns=["Close", "Change", "Ratio"])
+    df_1 = df[["%Change", "Volatility", "Beta"]].copy()
     fig_2 = px.line(df_1
                     )
     st.plotly_chart(
@@ -49,7 +60,8 @@ with right:
     )
 
     st.subheader("Non-systematic and close chart")
-    df_2 = df.drop(columns=["Change", "Ratio", "Volatility", "%Change", "Beta"])
+
+
     fig_4 = make_subplots(
         specs=[[{"secondary_y": True}]],
     )

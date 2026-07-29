@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="using streamlit to visualize trading strat">
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="the strat seems unstable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stock analysis/backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/backtest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stock analysis/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/parameter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stock analysis/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/visualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785220067001</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="the strat seems unstable">
+      <option name="closed" value="true" />
+      <created>1785238600736</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1785238600736</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +366,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="art, geo mean, volatility, VaR" />
     <MESSAGE value="monthly_sharpe_ratio around 22, waiting for fact check" />
     <MESSAGE value="current value at retirement age formula" />
     <MESSAGE value="Created monte_carlo but not working properly, its spike up instead of stable dragging up (waiting for debug)" />
@@ -382,6 +390,7 @@
     <MESSAGE value="convert data to specify interval" />
     <MESSAGE value="Is buying at top volatility a strat?" />
     <MESSAGE value="using streamlit to visualize trading strat" />
-    <option name="LAST_COMMIT_MESSAGE" value="using streamlit to visualize trading strat" />
+    <MESSAGE value="the strat seems unstable" />
+    <option name="LAST_COMMIT_MESSAGE" value="the strat seems unstable" />
   </component>
 </project>
