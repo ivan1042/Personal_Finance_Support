@@ -4,7 +4,12 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 from parameter import *
 
+target = "NVDA"
+interval= "1d"
 
+
+df = stock_stats(target, interval)
+df_VFINX = VFINX_df(interval)
 st.set_page_config(layout="wide")
 left, right = st.columns([1,1])
 
