@@ -6,7 +6,7 @@ from parameter import *
 
 target = ["NVDA", "AAPL", "MSFT", "GOOG", "AMZN"]
 interval= "1d"
-
+#goog, msft top beta is correct signal
 def plot(df, target):
     st.subheader(f"{target} close")
     fig_1 = make_subplots()

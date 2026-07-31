@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="functionalized parameter">
-      <change afterPath="$PROJECT_DIR$/Stock analysis/tickers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="correctly functioned" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -363,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785400117475</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="correctly functioned">
+      <option name="closed" value="true" />
+      <created>1785402945364</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1785402945364</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -390,7 +395,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="The object starts mixing up, currently trying downer service calling up" />
     <MESSAGE value="Converting everything to only pass data by dashbroad, only monte_carlo havent change" />
     <MESSAGE value="dashbroad data flow all sorted out, monte_carlo bug still hanging" />
     <MESSAGE value="monte_carlo debugging" />
@@ -415,6 +419,7 @@
     <MESSAGE value="More clear tracking method" />
     <MESSAGE value="Pending for making signal consistent" />
     <MESSAGE value="functionalized parameter" />
-    <option name="LAST_COMMIT_MESSAGE" value="functionalized parameter" />
+    <MESSAGE value="correctly functioned" />
+    <option name="LAST_COMMIT_MESSAGE" value="correctly functioned" />
   </component>
 </project>
