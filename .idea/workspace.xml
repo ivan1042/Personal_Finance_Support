@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="spotting top beta working stock">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stock analysis/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stock analysis/tickers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/tickers.py" afterDir="false" />
-    </list>
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="included vfinx chart in tickers" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -380,7 +376,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785490268176</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="included vfinx chart in tickers">
+      <option name="closed" value="true" />
+      <created>1785652874084</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1785652874084</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,7 +411,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dashbroad data flow all sorted out, monte_carlo bug still hanging" />
     <MESSAGE value="monte_carlo debugging" />
     <MESSAGE value="spotted %change error, updated to use close only" />
     <MESSAGE value="spit dataframe chopper to dataframe.py" />
@@ -432,6 +435,7 @@
     <MESSAGE value="functionalized parameter" />
     <MESSAGE value="correctly functioned" />
     <MESSAGE value="spotting top beta working stock" />
-    <option name="LAST_COMMIT_MESSAGE" value="spotting top beta working stock" />
+    <MESSAGE value="included vfinx chart in tickers" />
+    <option name="LAST_COMMIT_MESSAGE" value="included vfinx chart in tickers" />
   </component>
 </project>

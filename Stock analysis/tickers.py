@@ -52,7 +52,6 @@ st.set_page_config(layout="wide")
 
 for i, k in enumerate(target):
     df = stock_stats(k, interval)
-    print(df)
     if i % 2 == 0:
         with left:
             plot(df, k)
