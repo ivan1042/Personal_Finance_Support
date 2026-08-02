@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="correctly functioned" />
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="spotting top beta working stock">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stock analysis/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/parameter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stock analysis/tickers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stock analysis/tickers.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,34 +51,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.backtest.executor": "Run",
-    "Python.dashbroad.executor": "Run",
-    "Python.info.executor": "Run",
-    "Python.monte_carlo.executor": "Run",
-    "Python.parameter.executor": "Run",
-    "Python.retirement.executor": "Run",
-    "Python.returns.executor": "Run",
-    "Python.risk.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.tickers.executor": "Run",
-    "Python.visualization.executor": "Run",
-    "Python.webpage.executor": "Run",
-    "Python.yahoo finance caller.executor": "Run",
-    "Python.yahoo.executor": "Run",
-    "Python.yahoofinance.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.backtest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dashbroad.executor&quot;: &quot;Run&quot;,
+    &quot;Python.info.executor&quot;: &quot;Run&quot;,
+    &quot;Python.monte_carlo.executor&quot;: &quot;Run&quot;,
+    &quot;Python.parameter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.retirement.executor&quot;: &quot;Run&quot;,
+    &quot;Python.returns.executor&quot;: &quot;Run&quot;,
+    &quot;Python.risk.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tickers.executor&quot;: &quot;Run&quot;,
+    &quot;Python.visualization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.webpage.executor&quot;: &quot;Run&quot;,
+    &quot;Python.yahoo finance caller.executor&quot;: &quot;Run&quot;,
+    &quot;Python.yahoo.executor&quot;: &quot;Run&quot;,
+    &quot;Python.yahoofinance.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\PycharmProjects\Personal Finance Support\Porfolio Dashbroad" />
@@ -368,7 +372,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785402945364</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="spotting top beta working stock">
+      <option name="closed" value="true" />
+      <created>1785490268176</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1785490268176</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,7 +407,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Converting everything to only pass data by dashbroad, only monte_carlo havent change" />
     <MESSAGE value="dashbroad data flow all sorted out, monte_carlo bug still hanging" />
     <MESSAGE value="monte_carlo debugging" />
     <MESSAGE value="spotted %change error, updated to use close only" />
@@ -420,6 +431,7 @@
     <MESSAGE value="Pending for making signal consistent" />
     <MESSAGE value="functionalized parameter" />
     <MESSAGE value="correctly functioned" />
-    <option name="LAST_COMMIT_MESSAGE" value="correctly functioned" />
+    <MESSAGE value="spotting top beta working stock" />
+    <option name="LAST_COMMIT_MESSAGE" value="spotting top beta working stock" />
   </component>
 </project>

@@ -16,15 +16,11 @@ def stock_stats(target = "NVDA", interval = "1d"):
 
     df_VFINX = VFINX_df(interval)
     df["Volatility"] = df['%Change'].rolling(window=36).std()
-    df["Beta"] = df["%Change"].rolling(window=36).cov(df_VFINX["%Change"]) / (df["Volatility"]) ** 2
-
 
     temp = df["Close"]
     df.drop(columns = ["Close"], inplace = True)
     df = (df - df.mean()) / df.std()
     df["Close"] = temp
-    df["Non-systematic"] =df["Volatility"] - df["Beta"]
-
 
 
     df["Top_vo"] = None
@@ -34,12 +30,6 @@ def stock_stats(target = "NVDA", interval = "1d"):
         df["Top_vo"],
     )
 
-    df["Top_be"] = None
-    df["Top_be"] = np.where(
-        df["Beta"] >= df["Beta"].quantile(0.95) ,
-        df["Close"],
-        df["Top_be"],
-    )
 
     df["Buttom_vo"] = None
     df["Buttom_vo"] = np.where(
@@ -48,13 +38,27 @@ def stock_stats(target = "NVDA", interval = "1d"):
         df["Buttom_vo"],
     )
 
-    df["Buttom_be"] = None
-    df["Buttom_be"] = np.where(
-        df["Beta"] <= df["Beta"].quantile(0.05) ,
-        df["Close"],
-        df["Buttom_be"],
-    )
+    if target == "VFINX":
+        return df
 
-    return df
+    else:
+        df["Beta"] = df["%Change"].rolling(window=36).cov(df_VFINX["%Change"]) / (df["Volatility"]) ** 2
+        df["Non-systematic"] = df["Volatility"] - df["Beta"]
+
+        df["Top_be"] = None
+        df["Top_be"] = np.where(
+            df["Beta"] >= df["Beta"].quantile(0.95),
+            df["Close"],
+            df["Top_be"],
+        )
+
+        df["Buttom_be"] = None
+        df["Buttom_be"] = np.where(
+            df["Beta"] <= df["Beta"].quantile(0.05) ,
+            df["Close"],
+            df["Buttom_be"],
+        )
+
+        return df
 
 
