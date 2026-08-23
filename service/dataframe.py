@@ -11,7 +11,7 @@ def stats(stock_code = "VFINX", interval = "1mo"):
             df.index.name = "date"
     df = df.drop(columns = ["High", "Low", "Open", "Volume"])
     df["Change"] = df["Close"].diff( periods = 1)
-    df["%Change"] = df["Change"] / df["Close"]
+    df["%Change"] = df["Close"].pct_change()
     df["Ratio"] = 1 + df["%Change"]
 
     return df

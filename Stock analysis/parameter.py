@@ -1,7 +1,6 @@
-import lazy_update
-import matplotlib.pyplot as plt
-import pandas as pd
+from service import lazy_update
 import numpy as np
+
 
 def VFINX_df(interval):
     lazy_update.csv_checker("VFINX", interval)

@@ -1,5 +1,5 @@
 import streamlit as st
-import dashbroad
+import analysis
 import pandas as pd
 
 st.set_page_config(page_title = "Finance Dashboard", page_icon = ":bar_chart:", layout="wide")
@@ -21,7 +21,7 @@ if st.button("Submit", key = 1):
     weight_list = stocks_weight.split(",")
     stripped_weight = [float(item.strip()) for item in weight_list]
     st.success(stripped_weight)
-    stocks_info, sim_result = dashbroad.analysis(stripped_stock, stripped_weight, analysis_timeframe)
+    stocks_info, sim_result = analysis.analysis(stripped_stock, stripped_weight, analysis_timeframe)
     df_ticker_info = pd.DataFrame(stocks_info, columns=["Ticker", "Close", "Industry", "Summary"])
     df_ticker_info.set_index(df_ticker_info.columns[0], inplace=True)
     st.dataframe(df_ticker_info)

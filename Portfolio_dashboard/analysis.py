@@ -5,6 +5,7 @@ sys.path.append(str(service_root))
 from service import yahoo
 from service import dataframe
 from service import info
+from service import lazy_update
 from analytics import risk
 from analytics import returns
 from analytics import retirement
@@ -33,7 +34,7 @@ class analysis():
         self.volatility = []
 
         for stock in self.stocks:
-            yahoo.get_historical_data(stock)
+            lazy_update.csv_checker(stock, "1mo")
             self.ticker_info.append(info.ticker_info(stock))
             self.raw_data.append(dataframe.stats(stock))
 

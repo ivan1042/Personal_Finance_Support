@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="included vfinx chart in tickers" />
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="added on production">
+      <change beforePath="$PROJECT_DIR$/.idea/Personal Finance Support.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Personal Finance Support.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +33,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ivan1042/Personal_Finance_Support.git&quot;,
-    &quot;accountId&quot;: &quot;145ee733-58bb-4ed4-9e16-375aefbe0358&quot;
+    &quot;accountId&quot;: &quot;4078776f-5be6-4a2f-83e2-c7912644dd44&quot;
   }
 }</component>
   <component name="McpProjectServerCommands">
@@ -41,6 +45,7 @@
 }</component>
   <component name="ProjectId" id="3G8KN90D9etInK1BlfmPur6EG8J" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -50,17 +55,13 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.backtest.executor&quot;: &quot;Run&quot;,
     &quot;Python.dashbroad.executor&quot;: &quot;Run&quot;,
     &quot;Python.info.executor&quot;: &quot;Run&quot;,
     &quot;Python.monte_carlo.executor&quot;: &quot;Run&quot;,
-    &quot;Python.parameter.executor&quot;: &quot;Run&quot;,
     &quot;Python.retirement.executor&quot;: &quot;Run&quot;,
     &quot;Python.returns.executor&quot;: &quot;Run&quot;,
     &quot;Python.risk.executor&quot;: &quot;Run&quot;,
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tickers.executor&quot;: &quot;Run&quot;,
-    &quot;Python.visualization.executor&quot;: &quot;Run&quot;,
     &quot;Python.webpage.executor&quot;: &quot;Run&quot;,
     &quot;Python.yahoo finance caller.executor&quot;: &quot;Run&quot;,
     &quot;Python.yahoo.executor&quot;: &quot;Run&quot;,
@@ -71,23 +72,24 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\user\PycharmProjects\Personal Finance Support\Porfolio Dashbroad" />
       <recent name="C:\Users\user\PycharmProjects\Personal Finance Support" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
+        <option value="bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="" />
@@ -248,143 +250,7 @@
       <option name="project" value="LOCAL" />
       <updated>1784520955965</updated>
     </task>
-    <task id="LOCAL-00020" summary="figured out calling dashbraod issue, waiting to improve the webpage">
-      <option name="closed" value="true" />
-      <created>1784523689916</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1784523689917</updated>
-    </task>
-    <task id="LOCAL-00021" summary="rewired all file to make project b coexist">
-      <option name="closed" value="true" />
-      <created>1784691073236</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1784691073236</updated>
-    </task>
-    <task id="LOCAL-00022" summary="trying to implement analysis output to reference and see the prototype, but deciding if make analysis output dataclass">
-      <option name="closed" value="true" />
-      <created>1784693694889</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1784693694889</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Converting to oop, half way done">
-      <option name="closed" value="true" />
-      <created>1784711715401</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1784711715401</updated>
-    </task>
-    <task id="LOCAL-00024" summary="starting parameter analysis">
-      <option name="closed" value="true" />
-      <created>1784797671792</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1784797671792</updated>
-    </task>
-    <task id="LOCAL-00025" summary="versioned appl rolling volatility and beta, but timeframe is not clear">
-      <option name="closed" value="true" />
-      <created>1784806143640</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1784806143640</updated>
-    </task>
-    <task id="LOCAL-00026" summary="why stock can grow with return ~ N(0, 1)">
-      <option name="closed" value="true" />
-      <created>1784870743709</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1784870743709</updated>
-    </task>
-    <task id="LOCAL-00027" summary="convert data to specify interval">
-      <option name="closed" value="true" />
-      <created>1785051502861</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1785051502861</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Is buying at top volatility a strat?">
-      <option name="closed" value="true" />
-      <created>1785138319343</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1785138319343</updated>
-    </task>
-    <task id="LOCAL-00029" summary="using streamlit to visualize trading strat">
-      <option name="closed" value="true" />
-      <created>1785220067001</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1785220067001</updated>
-    </task>
-    <task id="LOCAL-00030" summary="the strat seems unstable">
-      <option name="closed" value="true" />
-      <created>1785238600736</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1785238600736</updated>
-    </task>
-    <task id="LOCAL-00031" summary="More clear tracking method">
-      <option name="closed" value="true" />
-      <created>1785310051197</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1785310051197</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Pending for making signal consistent">
-      <option name="closed" value="true" />
-      <created>1785345195979</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1785345195979</updated>
-    </task>
-    <task id="LOCAL-00033" summary="functionalized parameter">
-      <option name="closed" value="true" />
-      <created>1785400117475</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1785400117475</updated>
-    </task>
-    <task id="LOCAL-00034" summary="correctly functioned">
-      <option name="closed" value="true" />
-      <created>1785402945364</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1785402945364</updated>
-    </task>
-    <task id="LOCAL-00035" summary="spotting top beta working stock">
-      <option name="closed" value="true" />
-      <created>1785490268176</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1785490268176</updated>
-    </task>
-    <task id="LOCAL-00036" summary="included vfinx chart in tickers">
-      <option name="closed" value="true" />
-      <created>1785652874084</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1785652874084</updated>
-    </task>
-    <option name="localTasksCounter" value="37" />
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -392,25 +258,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="creating project, completed yfinance caller" />
+    <MESSAGE value="analytics successfully fetching the data" />
+    <MESSAGE value="Got historic and parametric VaR, the diff is quite big" />
+    <MESSAGE value="Made geo_mean" />
+    <MESSAGE value="art, geo mean, volatility, VaR" />
+    <MESSAGE value="monthly_sharpe_ratio around 22, waiting for fact check" />
+    <MESSAGE value="current value at retirement age formula" />
+    <MESSAGE value="Created monte_carlo but not working properly, its spike up instead of stable dragging up (waiting for debug)" />
+    <MESSAGE value="The object starts mixing up, currently trying downer service calling up" />
+    <MESSAGE value="Converting everything to only pass data by dashbroad, only monte_carlo havent change" />
+    <MESSAGE value="dashbroad data flow all sorted out, monte_carlo bug still hanging" />
     <MESSAGE value="monte_carlo debugging" />
     <MESSAGE value="spotted %change error, updated to use close only" />
     <MESSAGE value="spit dataframe chopper to dataframe.py" />
@@ -419,23 +284,7 @@
     <MESSAGE value="created info miner, start making dashborad, but issue importing dashbroad to webpage" />
     <MESSAGE value="waiting to make filter" />
     <MESSAGE value="idk why raw-dog calling function is okay, but not working inside if st.button" />
-    <MESSAGE value="figured out calling dashbraod issue, waiting to improve the webpage" />
-    <MESSAGE value="rewired all file to make project b coexist" />
-    <MESSAGE value="trying to implement analysis output to reference and see the prototype, but deciding if make analysis output dataclass" />
-    <MESSAGE value="Converting to oop, half way done" />
-    <MESSAGE value="starting parameter analysis" />
-    <MESSAGE value="versioned appl rolling volatility and beta, but timeframe is not clear" />
-    <MESSAGE value="why stock can grow with return ~ N(0, 1)" />
-    <MESSAGE value="convert data to specify interval" />
-    <MESSAGE value="Is buying at top volatility a strat?" />
-    <MESSAGE value="using streamlit to visualize trading strat" />
-    <MESSAGE value="the strat seems unstable" />
-    <MESSAGE value="More clear tracking method" />
-    <MESSAGE value="Pending for making signal consistent" />
-    <MESSAGE value="functionalized parameter" />
-    <MESSAGE value="correctly functioned" />
-    <MESSAGE value="spotting top beta working stock" />
-    <MESSAGE value="included vfinx chart in tickers" />
-    <option name="LAST_COMMIT_MESSAGE" value="included vfinx chart in tickers" />
+    <MESSAGE value="Fixed hist chart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed hist chart" />
   </component>
 </project>
