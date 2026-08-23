@@ -13,7 +13,7 @@ from analytics import monte_carlo
 
 
 class analysis():
-    def __init__(self, stocks = ["VFINX", "AAPL"], weight = [0.7, 0.3], timeframe = 40):
+    def __init__(self, stocks, weight, timeframe):
         self.stocks = stocks
         self.weight = weight
         self.timeframe = timeframe

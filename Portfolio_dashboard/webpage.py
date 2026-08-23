@@ -63,116 +63,125 @@ if submit:
     stripped_stock = [item.strip() for item in stocks_list]
     weight_list = weights.split(",")
     stripped_weight = [float(item.strip()) for item in weight_list]
-    analyzed = analysis.analysis(stripped_stock, stripped_weight, years)
 
-    # Metrics
-    weighted_return = weight(stripped_weight, analysis.analysis().monthly_art_mean)
-    weighted_sharpe = weight(stripped_weight, analysis.analysis().sharpe_ratio)
-    weighted_volatility = weight(stripped_weight, analysis.analysis().volatility)
-    weighted_historical_VaR = weight(stripped_weight, analysis.analysis().historical_VaR)
-    weighted_sortino_ratio = weight(stripped_weight, analysis.analysis().sortino_ratio)
-    weighted_max_drawdown = weight(stripped_weight, analysis.analysis().max_drawdown)
-    st.metric("Expected Monthly Return", f"{(weighted_return - 1):.2%}")
-    st.metric("Sharpe", f"{weighted_sharpe:.2f}")
+    if len(stripped_weight) != len(stripped_stock):
+        st.text("Number of stock and weight does not match")
+    elif sum(stripped_weight) != 1:
+        st.text("Sum of weight does not equal to 1")
 
-    # Charts
-#    st.plotly_chart(analyzed.allocation_chart)
-#    st.plotly_chart(analyzed.mc_chart)
-#    st.plotly_chart(analyzed.history_chart)
+    else:
+        try:
+            analyzed = analysis.analysis(stripped_stock, stripped_weight, years)
 
-# ==========================================
-# RIGHT PANEL
-# ==========================================
+            # Metrics
+            weighted_return = weight(stripped_weight, analyzed.monthly_art_mean)
+            weighted_sharpe = weight(stripped_weight, analyzed.sharpe_ratio)
+            weighted_volatility = weight(stripped_weight, analyzed.volatility)
+            weighted_historical_VaR = weight(stripped_weight, analyzed.historical_VaR)
+            weighted_sortino_ratio = weight(stripped_weight, analyzed.sortino_ratio)
+            weighted_max_drawdown = weight(stripped_weight, analyzed.max_drawdown)
+            st.metric("Expected Monthly Return", f"{(weighted_return - 1):.2%}")
+            st.metric("Sharpe", f"{weighted_sharpe:.2f}")
 
-    with right:
+            # Charts
+        #    st.plotly_chart(analyzed.allocation_chart)
+        #    st.plotly_chart(analyzed.mc_chart)
+        #    st.plotly_chart(analyzed.history_chart)
 
-        st.subheader("Portfolio Summary")
+        # ==========================================
+        # RIGHT PANEL
+        # ==========================================
 
-        metric1, metric2, metric3 = st.columns(3)
+            with right:
 
-        metric1.metric(
-            "Expected Return",
-            weighted_return
-        )
+                st.subheader("Portfolio Summary")
 
-        metric2.metric(
-            "Volatility",
-            weighted_volatility
-        )
+                metric1, metric2, metric3 = st.columns(3)
 
-        metric3.metric(
-            "Sharpe",
-            weighted_sharpe
-        )
+                metric1.metric(
+                    "Expected Return",
+                    weighted_return
+                )
 
-        df_ticker_info = pd.DataFrame(analysis.analysis().ticker_info, columns=["Ticker", "Close", "Industry", "Summary"])
-        df_ticker_info.set_index(df_ticker_info.columns[0], inplace=True)
-        st.dataframe(df_ticker_info)
+                metric2.metric(
+                    "Volatility",
+                    weighted_volatility
+                )
 
-    # ==========================================
-    # Charts
-    # ==========================================
+                metric3.metric(
+                    "Sharpe",
+                    weighted_sharpe
+                )
 
-    pie_col, mc_col, risk_col = st.columns([1,2,1])
+                df_ticker_info = pd.DataFrame(analyzed.ticker_info, columns=["Ticker", "Close", "Industry", "Summary"])
+                df_ticker_info.set_index(df_ticker_info.columns[0], inplace=True)
+                st.dataframe(df_ticker_info)
 
-    # ---------------- Pie ----------------
+            # ==========================================
+            # Charts
+            # ==========================================
 
-    with pie_col:
+            pie_col, mc_col, risk_col = st.columns([1,2,1])
 
-        st.subheader("Allocation")
+            # ---------------- Pie ----------------
 
-        fig = px.pie(
-            names = stripped_stock,
-            values = stripped_weight
-        )
+            with pie_col:
 
-        st.plotly_chart(
-            fig,
-            use_container_width=True
-        )
+                st.subheader("Allocation")
 
-    # ---------------- Monte Carlo ----------------
+                fig = px.pie(
+                    names = stripped_stock,
+                    values = stripped_weight
+                )
 
-    with mc_col:
+                st.plotly_chart(
+                    fig,
+                    width='stretch'
+                )
 
-        st.subheader("Monte Carlo")
+            # ---------------- Monte Carlo ----------------
 
-        fig = px.line(
-                analysis.analysis().sim_result
-        )
+            with mc_col:
 
-        st.plotly_chart(
-            fig,
-            use_container_width=True
-        )
+                st.subheader("Monte Carlo")
 
-    # ---------------- Risk ----------------
+                fig = px.line(
+                        analyzed.sim_result)
 
-    with risk_col:
+                st.plotly_chart(
+                    fig,
+                    width='stretch'
+                )
 
-        st.subheader("Risk")
+            # ---------------- Risk ----------------
 
-        st.metric("VaR", weighted_historical_VaR)
+            with risk_col:
 
-        st.metric("Max DD", weighted_max_drawdown)
+                st.subheader("Risk")
 
-        st.metric("Sortino", weighted_sortino_ratio)
+                st.metric("VaR", weighted_historical_VaR)
 
-    st.divider()
+                st.metric("Max DD", weighted_max_drawdown)
 
-    # ==========================================
-    # Bottom Chart
-    # ==========================================
+                st.metric("Sortino", weighted_sortino_ratio)
 
-    st.subheader("Historical Portfolio Performance")
+            st.divider()
+
+            # ==========================================
+            # Bottom Chart
+            # ==========================================
+
+            st.subheader("Historical Portfolio Performance")
 
 
-    fig = px.line(
-        analysis.analysis().historical_return
-    )
+            fig = px.line(
+                analyzed.historical_return
+            )
 
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
+            st.plotly_chart(
+                fig,
+                width='stretch'
+            )
 
+        except KeyError:
+            st.text("Invalid symbol")

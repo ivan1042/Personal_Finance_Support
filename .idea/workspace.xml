@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="added on production">
-      <change beforePath="$PROJECT_DIR$/.idea/Personal Finance Support.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Personal Finance Support.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="99bcd312-4b62-4c7b-8012-a48d2e98d2b0" name="Changes" comment="improving presentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio_dashboard/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio_dashboard/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio_dashboard/analytics/monte_carlo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio_dashboard/analytics/monte_carlo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio_dashboard/webpage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio_dashboard/webpage.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +55,13 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.dashbroad.executor&quot;: &quot;Run&quot;,
     &quot;Python.info.executor&quot;: &quot;Run&quot;,
+    &quot;Python.lazy_update.executor&quot;: &quot;Run&quot;,
     &quot;Python.monte_carlo.executor&quot;: &quot;Run&quot;,
+    &quot;Python.reference.executor&quot;: &quot;Run&quot;,
     &quot;Python.retirement.executor&quot;: &quot;Run&quot;,
     &quot;Python.returns.executor&quot;: &quot;Run&quot;,
     &quot;Python.risk.executor&quot;: &quot;Run&quot;,
@@ -79,6 +83,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\johnl\PycharmProjects\Personal_Finance_Support\service" />
       <recent name="C:\Users\user\PycharmProjects\Personal Finance Support" />
     </key>
   </component>
@@ -250,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784520955965</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="improving presentation">
+      <option name="closed" value="true" />
+      <created>1787500911373</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1787500911373</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,6 +298,7 @@
     <MESSAGE value="waiting to make filter" />
     <MESSAGE value="idk why raw-dog calling function is okay, but not working inside if st.button" />
     <MESSAGE value="Fixed hist chart" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed hist chart" />
+    <MESSAGE value="improving presentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="improving presentation" />
   </component>
 </project>

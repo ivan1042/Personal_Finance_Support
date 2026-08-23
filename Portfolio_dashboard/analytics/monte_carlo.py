@@ -12,14 +12,16 @@ def simulation(raw_mon_return_temp, mon_re_temp, stock = ["VFINX", "AAPL"], weig
     meanM = np.full(shape = (time, len(weight)), fill_value = return_matrix - 1)
     meanM = meanM.T
     portfolio_sim = np.full(shape = (time, max_sim), fill_value = 0.0)
-    if len(stock) <= 1:
-        cov_matrix = return_df.var(ddof = 0)
+    if len(stock) == 1:
+        variance = return_df.iloc[:, 0].var(ddof=0)
+        cov_matrix = np.array([[variance]])
     else:
         cov_matrix = return_df.cov()
 
+    L = np.linalg.cholesky(cov_matrix)
+
     for m in range(0, max_sim):
         Z = np.random.normal(size = (time, len(weight)))
-        L = np.linalg.cholesky(cov_matrix)
         monthly_return = meanM + np.inner(L, Z)
         portfolio_sim[: ,m] = np.cumprod(np.inner(weight, monthly_return.T + 1)) * initial_amount
 
