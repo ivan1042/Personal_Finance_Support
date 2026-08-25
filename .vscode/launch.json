@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Personal Finance dashboard",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": [
+        "run",
+        "webpage.py"
+      ],
+      "cwd": "${workspaceFolder}/Portfolio_dashboard",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}
