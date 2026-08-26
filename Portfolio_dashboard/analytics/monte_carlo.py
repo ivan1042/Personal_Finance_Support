@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 max_sim = 100
-def simulation(raw_mon_return_temp, mon_re_temp, stock = ["VFINX", "AAPL"], weight = [0.7, 0.3], timeframe = 40):
+def simulation(raw_mon_return_temp, mon_re_temp, 
+               stock = ["VFINX", "AAPL"], weight = [0.7, 0.3], timeframe = 40):
     return_df = pd.concat(raw_mon_return_temp, axis=1)
     return_matrix = np.array(mon_re_temp).T
     time = timeframe * 12
@@ -25,4 +26,5 @@ def simulation(raw_mon_return_temp, mon_re_temp, stock = ["VFINX", "AAPL"], weig
         monthly_return = meanM + np.inner(L, Z)
         portfolio_sim[: ,m] = np.cumprod(np.inner(weight, monthly_return.T + 1)) * initial_amount
 
+    print(portfolio_sim)
     return portfolio_sim

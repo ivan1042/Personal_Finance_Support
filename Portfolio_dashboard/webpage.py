@@ -68,6 +68,8 @@ if submit:
         st.text("Number of stock and weight does not match")
     elif sum(stripped_weight) != 1:
         st.text("Sum of weight does not equal to 1")
+    elif capital <= 0:
+        st.text("Capital must greater than 0")
 
     else:
         try:
