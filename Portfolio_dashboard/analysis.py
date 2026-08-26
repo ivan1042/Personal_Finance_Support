@@ -21,6 +21,7 @@ class analysis():
         self.raw_data = []
         self.data = []
         self.buy_and_hold = []
+        #pending
         self.risk_data = []
         self.raw_mon_return_temp = []
         self.raw_mon_close = []
