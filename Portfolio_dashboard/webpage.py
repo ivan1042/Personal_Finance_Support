@@ -173,17 +173,33 @@ if submit:
             # Bottom Chart
             # ==========================================
 
-            st.subheader("Historical Portfolio Performance")
+            col_1, col_2 = st.columns([1,1])
+
+            with col_1:
+                st.subheader("Historical Portfolio Performance")
 
 
-            fig = px.line(
-                analyzed.historical_return
-            )
+                fig = px.line(
+                    analyzed.historical_return * capital
+                )
 
-            st.plotly_chart(
-                fig,
-                width='stretch'
-            )
+                st.plotly_chart(
+                    fig,
+                    width='stretch'
+                )
+
+            with col_2:
+                st.subheader("Historical Portfolio Weight")
+
+                fig = px.line(
+                    analyzed.buy_and_hold.drop(columns="raw")
+                )
+
+                st.plotly_chart(
+                    fig,
+                    width='stretch'
+                )
+
 
         except KeyError:
             st.text("Invalid symbol")

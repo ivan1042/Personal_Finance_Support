@@ -10,7 +10,7 @@ from analytics import risk
 from analytics import returns
 from analytics import retirement
 from analytics import monte_carlo
-
+import Buy_and_hold
 
 class analysis():
     def __init__(self, stocks, weight, timeframe):
@@ -20,6 +20,7 @@ class analysis():
 
         self.raw_data = []
         self.data = []
+        self.buy_and_hold = []
         self.risk_data = []
         self.raw_mon_return_temp = []
         self.raw_mon_close = []
@@ -37,6 +38,8 @@ class analysis():
             lazy_update.csv_checker(stock, "1mo")
             self.ticker_info.append(info.ticker_info(stock))
             self.raw_data.append(dataframe.stats(stock))
+
+        self.buy_and_hold = Buy_and_hold.Historic_return(self.raw_data)
 
         for k in self.raw_data:
             self.data.append(returns.returns(k))
@@ -61,5 +64,5 @@ class analysis():
             retirement.retirement_amount(k[2])
 
         self.sim_result = monte_carlo.simulation(self.raw_mon_return_temp, self.monthly_art_mean, self.stocks, self.weight, self.timeframe)
-        self.historical_return = returns.port_hist(self.raw_mon_close, self.weight)
+        self.historical_return = self.buy_and_hold["raw"]
 

@@ -2,7 +2,8 @@ import pandas as pd
 from helper import *
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
-def port_hist(raw_data: list, initial_weight = [0.3, 0.7]):
+
+def Historic_return(raw_data: list, initial_weight = [0.3, 0.7]):
     weight = pd.DataFrame()
     for i, j in enumerate(raw_data):
         weight[f"Ratio_{i}"] = j["Ratio"]
@@ -20,7 +21,11 @@ def port_hist(raw_data: list, initial_weight = [0.3, 0.7]):
     for k in range(0, len(initial_weight)):
         df[f"New_weight_{k}"] = df[f"raw_{k}"] / df["raw"]
         df[f"New_weight_{k}"] = df[f"New_weight_{k}"].fillna(df[f"weight_{k}"])
-    print(df)
+        target = [f"New_weight_{k}" for k in range(0, len(initial_weight))]
+    df.iat[0, df.columns.get_loc("raw")] = 1
+    target.append("raw")
+    result = df[target]
 
+    return result
 
-port_hist(test_helper())
+Historic_return(test_helper())
