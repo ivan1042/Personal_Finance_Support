@@ -15,3 +15,10 @@ def stats(stock_code = "VFINX", interval = "1mo"):
     df["Ratio"] = 1 + df["%Change"]
 
     return df
+
+def combined(df):
+    df["Change"] = df["raw"].diff(periods=1)
+    df["%Change"] = df["raw"].pct_change()
+    df["Ratio"] = 1 + df["%Change"]
+
+    return df

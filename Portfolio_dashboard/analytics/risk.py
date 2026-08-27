@@ -8,25 +8,25 @@ risk_free = 0.045
 def risk_calc(df, monthly_art_mean, yearly_art_mean, monthly_geo_mean, yearly_geo_mean):
 
     #No assumption
-    historical_VaR = np.percentile(df["%Change"].dropna(), (1 - confidence_level) * 100)
+    historical_VaR = np.percentile(df.dropna(), (1 - confidence_level) * 100)
     #print(f"Historical VaR (95% Confidence): {historical_VaR:.2%}")
 
     #Assume normal distribution
-    mu = np.mean(df["%Change"])
-    sigma = np.std(df["%Change"])
+    mu = np.mean(df)
+    sigma = np.std(df)
     z_score = stats.norm.ppf(1 - confidence_level)
     parametric_VaR = mu - z_score * sigma
     #print(f"Parametric VaR (95% Confidence): {parametric_VaR:.2%}")
 
 
 
-    volatility = np.std(df["%Change"], ddof=1)
+    volatility = np.std(df, ddof=1)
     sharpe_ratio = (monthly_geo_mean - ((1 + risk_free)**(1/12) ) )/ volatility
 
-    downside_volatility = np.std(df[df["%Change"] <= 0]["%Change"].dropna(), ddof=1)
+    downside_volatility = np.std(df[df <= 1].dropna(), ddof=1)
     sortino_ratio = (monthly_geo_mean - ((1 + risk_free)**(1/12) ) )/ downside_volatility
 
-    wealth_index = np.cumprod(df["Ratio"].dropna())
+    wealth_index = np.cumprod(df.dropna())
     running_peaks = np.maximum.accumulate(wealth_index)
     drawdowns = (wealth_index - running_peaks) / running_peaks
     max_drawdown = np.min(drawdowns)

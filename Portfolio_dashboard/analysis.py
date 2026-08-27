@@ -19,7 +19,7 @@ class analysis():
         self.timeframe = timeframe
 
         self.raw_data = []
-        self.data = []
+        self.return_data = []
         self.buy_and_hold = []
         #pending
         self.risk_data = []
@@ -40,19 +40,22 @@ class analysis():
             self.ticker_info.append(info.ticker_info(stock))
             self.raw_data.append(dataframe.stats(stock))
 
-        self.buy_and_hold = Buy_and_hold.Historic_return(self.raw_data)
+        self.buy_and_hold = dataframe.combined(Buy_and_hold.Historic_return(self.raw_data))
+        self.bh_return_data = returns.returns(self.buy_and_hold["Ratio"])
+        print(self.bh_return_data)
+        self.bh_risk_data = risk.risk_calc(self.buy_and_hold["Ratio"], *self.bh_return_data)
 
         for k in self.raw_data:
-            self.data.append(returns.returns(k))
+            self.return_data.append(returns.returns(k["Ratio"]))
 
         for k in range(0, len(stocks)):
-            self.risk_data.append(risk.risk_calc(self.raw_data[k], *self.data[k]))
+            self.risk_data.append(risk.risk_calc(self.raw_data[k]["Ratio"], *self.return_data[k]))
 
         for k in range(0, len(stocks)):
             self.raw_mon_close.append(self.raw_data[k]["Close"])
             self.raw_mon_return_temp.append(self.raw_data[k]["%Change"])
-            self.monthly_art_mean.append(self.data[k][0])
-            self.monthly_geo_mean.append(self.data[k][2])
+            self.monthly_art_mean.append(self.return_data[k][0])
+            self.monthly_geo_mean.append(self.return_data[k][2])
             self.historical_VaR.append(self.risk_data[k][0])
             self.parametric_VaR.append(self.risk_data[k][1])
             self.sharpe_ratio.append(self.risk_data[k][2])
@@ -61,7 +64,7 @@ class analysis():
             self.volatility.append(self.risk_data[k][5])
 
 
-        for k in self.data:
+        for k in self.return_data:
             retirement.retirement_amount(k[2])
 
         self.sim_result = monte_carlo.simulation(self.raw_mon_return_temp, self.monthly_art_mean, self.stocks, self.weight, self.timeframe)

@@ -28,4 +28,4 @@ def Historic_return(raw_data: list, initial_weight = [0.3, 0.7]):
 
     return result
 
-Historic_return(test_helper())
+#Historic_return(test_helper())
