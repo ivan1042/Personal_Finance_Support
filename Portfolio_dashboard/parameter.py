@@ -32,12 +32,12 @@ with left:
 
     stocks = st.text_input(
         "Stock Tickers",
-        "AAPL,GOOG"
+        "AAPL,BIDU"
     )
 
     weights = st.text_input(
         "Weights",
-        "0.7,0.3"
+        "0.3,0.7"
     )
 
     capital = st.number_input(

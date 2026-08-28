@@ -41,11 +41,11 @@ class analysis():
             self.ticker_info.append(info.ticker_info(stock))
             self.raw_data.append(dataframe.stats(stock))
 
-        self.buy_and_hold = dataframe.combined(Buy_and_hold.Historic_return(self.raw_data))
+        self.buy_and_hold = dataframe.combined(Buy_and_hold.Historic_return(self.raw_data, self.weight))
         self.bh_return_data = returns.returns(self.buy_and_hold["Ratio"])
         self.bh_risk_data = risk.risk_calc(self.buy_and_hold["Ratio"], *self.bh_return_data)
 
-        self.constant_weight = dataframe.combined(Constant_weight.Weighted_return(self.raw_data))
+        self.constant_weight = dataframe.combined(Constant_weight.Weighted_return(self.raw_data, self.weight))
         self.cw_return_data = returns.returns(self.constant_weight["Ratio"])
         self.cw_risk_data = risk.risk_calc(self.constant_weight["Ratio"], *self.cw_return_data)
 
