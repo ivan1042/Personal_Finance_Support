@@ -180,7 +180,7 @@ if submit:
 
 
                 fig = px.line(
-                    analyzed.historical_return * capital
+                    analyzed.bh_historical_return * capital
                 )
 
                 st.plotly_chart(

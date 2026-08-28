@@ -2,8 +2,8 @@ from service import lazy_update
 from service import dataframe
 
 def test_helper():
-    stocks = ["AAPL", "GOOG"]
-    weight = [0.3, 0.7]
+    stocks = ["AAPL", "BIDU"]
+    weight = [0.7, 0.3]
     raw_data = []
 
     for stock in stocks:

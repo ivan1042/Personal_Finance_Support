@@ -71,36 +71,75 @@ if submit:
         st.text("Capital must greater than 0")
 
     else:
-        try:
-            analyzed = analysis.analysis(stripped_stock, stripped_weight, years)
+
+        analyzed = analysis.analysis(stripped_stock, stripped_weight, years)
 
 
-            weighted_return = weight(stripped_weight, analyzed.monthly_art_mean)
-            weighted_sharpe = weight(stripped_weight, analyzed.sharpe_ratio)
-            weighted_volatility = weight(stripped_weight, analyzed.volatility)
-            weighted_historical_VaR = weight(stripped_weight, analyzed.historical_VaR)
-            weighted_sortino_ratio = weight(stripped_weight, analyzed.sortino_ratio)
-            weighted_max_drawdown = weight(stripped_weight, analyzed.max_drawdown)
+        weighted_return = weight(stripped_weight, analyzed.monthly_art_mean)
+        weighted_sharpe = weight(stripped_weight, analyzed.sharpe_ratio)
+        weighted_volatility = weight(stripped_weight, analyzed.volatility)
+        weighted_historical_VaR = weight(stripped_weight, analyzed.historical_VaR)
+        weighted_sortino_ratio = weight(stripped_weight, analyzed.sortino_ratio)
+        weighted_max_drawdown = weight(stripped_weight, analyzed.max_drawdown)
 
-            with center:
+        with center:
 
-                st.subheader("Buy and hold Risk")
+            st.subheader("Buy and hold Risk")
 
-                st.metric("VaR", analyzed.bh_risk_data[0])
+            st.metric("VaR", analyzed.bh_risk_data[0])
 
-                st.metric("Max DD", analyzed.bh_risk_data[4])
+            st.metric("Max DD", analyzed.bh_risk_data[4])
 
-                st.metric("Sortino", analyzed.bh_risk_data[3])
+            st.metric("Sortino", analyzed.bh_risk_data[3])
 
-            with right:
+        with right:
 
-                st.subheader("Fixed weight Risk")
+            st.subheader("Fixed weight Risk")
 
-                st.metric("VaR", weighted_historical_VaR)
+            st.metric("VaR", weighted_historical_VaR)
 
-                st.metric("Max DD", weighted_max_drawdown)
+            st.metric("Max DD", weighted_max_drawdown)
 
-                st.metric("Sortino", weighted_sortino_ratio)
+            st.metric("Sortino", weighted_sortino_ratio)
 
-        except KeyError:
-            st.text("Invalid symbol")
+        st.divider()
+
+        col_1, col_2 = st.columns([1,1])
+
+        with col_1:
+            st.subheader("BH Historical Portfolio Performance")
+
+            fig_1 = px.line(
+                analyzed.bh_historical_return * capital
+            )
+            st.plotly_chart(
+                fig_1,
+                width='stretch'
+            )
+
+            st.subheader("return maxtrix")
+            st.metric("Yearly geo mean", analyzed.bh_return_data[3])
+            st.metric("Historical VaR", analyzed.bh_risk_data[0])
+            st.metric("Parametric VaR", analyzed.bh_risk_data[1])
+            st.metric("sharpe_ratio", analyzed.bh_risk_data[2])
+            st.metric("sortino_ratio", analyzed.bh_risk_data[3])
+            st.metric("max_drawdown", analyzed.bh_risk_data[4])
+            st.metric("volatility", analyzed.bh_risk_data[5])
+
+        with col_2:
+            st.subheader("CW Historical Portfolio Performance")
+            fig_2 = px.line(
+                analyzed.cw_historical_return * capital
+            )
+            st.plotly_chart(
+                fig_2,
+                width='stretch'
+            )
+            st.subheader("return maxtrix")
+            st.metric("Yearly geo mean", analyzed.cw_return_data[3])
+            st.metric("Historical VaR", analyzed.cw_risk_data[0])
+            st.metric("Parametric VaR", analyzed.cw_risk_data[1])
+            st.metric("sharpe_ratio", analyzed.cw_risk_data[2])
+            st.metric("sortino_ratio", analyzed.cw_risk_data[3])
+            st.metric("max_drawdown", analyzed.cw_risk_data[4])
+            st.metric("volatility", analyzed.cw_risk_data[5])

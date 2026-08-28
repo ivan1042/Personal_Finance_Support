@@ -22,10 +22,13 @@ def Historic_return(raw_data: list, initial_weight = [0.3, 0.7]):
         df[f"New_weight_{k}"] = df[f"raw_{k}"] / df["raw"]
         df[f"New_weight_{k}"] = df[f"New_weight_{k}"].fillna(df[f"weight_{k}"])
         target = [f"New_weight_{k}" for k in range(0, len(initial_weight))]
-    df.iat[0, df.columns.get_loc("raw")] = 1
-    target.append("raw")
+        df[f"New_{k}"] = df[f"Ratio_{k}"] * df[f"New_weight_{k}"]
+    df["new"] = df[[f"New_{k}" for k in range(0, len(initial_weight))]].sum(axis=1)
+    df["result"] = df["new"].cumprod()
+    df.iat[0, df.columns.get_loc("new")] = 1
+    target.append("result")
     result = df[target]
 
     return result
 
-#Historic_return(test_helper())
+print(Historic_return(test_helper()))

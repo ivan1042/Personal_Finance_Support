@@ -11,6 +11,7 @@ from analytics import returns
 from analytics import retirement
 from analytics import monte_carlo
 import Buy_and_hold
+import Constant_weight
 
 class analysis():
     def __init__(self, stocks, weight, timeframe):
@@ -42,8 +43,11 @@ class analysis():
 
         self.buy_and_hold = dataframe.combined(Buy_and_hold.Historic_return(self.raw_data))
         self.bh_return_data = returns.returns(self.buy_and_hold["Ratio"])
-        print(self.bh_return_data)
         self.bh_risk_data = risk.risk_calc(self.buy_and_hold["Ratio"], *self.bh_return_data)
+
+        self.constant_weight = dataframe.combined(Constant_weight.Weighted_return(self.raw_data))
+        self.cw_return_data = returns.returns(self.constant_weight["Ratio"])
+        self.cw_risk_data = risk.risk_calc(self.constant_weight["Ratio"], *self.cw_return_data)
 
         for k in self.raw_data:
             self.return_data.append(returns.returns(k["Ratio"]))
@@ -68,5 +72,6 @@ class analysis():
             retirement.retirement_amount(k[2])
 
         self.sim_result = monte_carlo.simulation(self.raw_mon_return_temp, self.monthly_art_mean, self.stocks, self.weight, self.timeframe)
-        self.historical_return = self.buy_and_hold["raw"]
+        self.bh_historical_return = self.buy_and_hold["result"]
+        self.cw_historical_return = self.constant_weight["result"]
 
