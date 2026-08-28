@@ -1,6 +1,6 @@
 # Portfolio Dashboard
 
-An interactive Streamlit dashboard for analyzing a portfolio of stock tickers. Enter tickers, allocation weights, and an investment horizon to view historical data, portfolio metrics, and simulated outcomes.
+A quantitative portfolio risk engine that constructs portfolio return series under different allocation policies, measures static and time-varying risk using multiple methodologies, validates VaR forecasts, and evaluates the risk/return trade-offs of different portfolio strategies.
 
 > **Educational use only.** Outputs are exploratory calculations, not investment advice or a prediction of future returns.
 

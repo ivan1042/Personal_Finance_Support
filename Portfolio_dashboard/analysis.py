@@ -2,16 +2,15 @@ from pathlib import Path
 import sys
 service_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(service_root))
-from service import yahoo
 from service import dataframe
 from service import info
 from service import lazy_update
-from analytics import risk
+from Portfolio_dashboard.risk import static_risk
 from analytics import returns
 from analytics import retirement
 from analytics import monte_carlo
-import Buy_and_hold
-import Constant_weight
+from Portfolio_dashboard.strategy import Buy_and_hold, Constant_weight
+
 
 class analysis():
     def __init__(self, stocks, weight, timeframe):
@@ -43,17 +42,17 @@ class analysis():
 
         self.buy_and_hold = dataframe.combined(Buy_and_hold.Historic_return(self.raw_data, self.weight))
         self.bh_return_data = returns.returns(self.buy_and_hold["Ratio"])
-        self.bh_risk_data = risk.risk_calc(self.buy_and_hold["Ratio"], *self.bh_return_data)
+        self.bh_risk_data = static_risk.risk_calc(self.buy_and_hold["Ratio"], *self.bh_return_data)
 
         self.constant_weight = dataframe.combined(Constant_weight.Weighted_return(self.raw_data, self.weight))
         self.cw_return_data = returns.returns(self.constant_weight["Ratio"])
-        self.cw_risk_data = risk.risk_calc(self.constant_weight["Ratio"], *self.cw_return_data)
+        self.cw_risk_data = static_risk.risk_calc(self.constant_weight["Ratio"], *self.cw_return_data)
 
         for k in self.raw_data:
             self.return_data.append(returns.returns(k["Ratio"]))
 
         for k in range(0, len(stocks)):
-            self.risk_data.append(risk.risk_calc(self.raw_data[k]["Ratio"], *self.return_data[k]))
+            self.risk_data.append(static_risk.risk_calc(self.raw_data[k]["Ratio"], *self.return_data[k]))
 
         for k in range(0, len(stocks)):
             self.raw_mon_close.append(self.raw_data[k]["Close"])

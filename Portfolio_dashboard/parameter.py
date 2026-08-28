@@ -42,7 +42,7 @@ with left:
 
     capital = st.number_input(
         "Initial Capital",
-        value = 100000
+        value = 1
     )
 
     years = st.slider(

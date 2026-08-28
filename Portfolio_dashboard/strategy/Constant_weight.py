@@ -17,6 +17,7 @@ def Weighted_return(raw_data: list, initial_weight = [0.3, 0.7]):
         df[f"New_{k}"] = df[f"Ratio_{k}"] * df[f"Weight_{k}"]
     df["raw"] = df[[f"raw_{k}" for k in range(0, len(initial_weight))]].sum(axis=1)
     df["new"] = df[[f"New_{k}" for k in range(0, len(initial_weight))]].sum(axis=1)
+    df.iat[0, df.columns.get_loc("new")] = 1
     df["result"] = df["new"].cumprod()
     df.iat[0, df.columns.get_loc("result")] = 1
     df.dropna(inplace = True)
