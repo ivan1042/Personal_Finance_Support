@@ -5,7 +5,7 @@ sys.path.append(str(service_root))
 from service import dataframe
 from service import info
 from service import lazy_update
-from Portfolio_dashboard.risk import static_risk
+from Portfolio_dashboard.risk import static_risk, rolling_risk
 from analytics import returns
 from analytics import retirement
 from analytics import monte_carlo
@@ -17,6 +17,12 @@ class analysis():
         self.stocks = stocks
         self.weight = weight
         self.timeframe = timeframe
+
+        lazy_update.csv_checker("SHV", "1mo")
+        self.risk_free = dataframe.stats("SHV")
+
+        lazy_update.csv_checker("VFINX", "1mo")
+        self.benchmark = dataframe.stats("VFINX")
 
         self.raw_data = []
         self.return_data = []
@@ -42,17 +48,21 @@ class analysis():
 
         self.buy_and_hold = dataframe.combined(Buy_and_hold.Historic_return(self.raw_data, self.weight))
         self.bh_return_data = returns.returns(self.buy_and_hold["Ratio"])
-        self.bh_risk_data = static_risk.risk_calc(self.buy_and_hold["Ratio"], *self.bh_return_data)
+        self.bh_static_risk_data = static_risk.static_calc(self.buy_and_hold["Ratio"], *self.bh_return_data)
+        self.bh_rolling_risk_data = rolling_risk.rolling_calc(self.buy_and_hold["Ratio"],self.risk_free["Close"],
+                                                              self.benchmark["Ratio"])
 
         self.constant_weight = dataframe.combined(Constant_weight.Weighted_return(self.raw_data, self.weight))
         self.cw_return_data = returns.returns(self.constant_weight["Ratio"])
-        self.cw_risk_data = static_risk.risk_calc(self.constant_weight["Ratio"], *self.cw_return_data)
+        self.cw_static_risk_data = static_risk.static_calc(self.constant_weight["Ratio"], *self.cw_return_data)
+        self.cw_rolling_risk_data = rolling_risk.rolling_calc(self.constant_weight["Ratio"], self.risk_free["Close"],
+                                                              self.benchmark["Ratio"])
 
         for k in self.raw_data:
             self.return_data.append(returns.returns(k["Ratio"]))
 
         for k in range(0, len(stocks)):
-            self.risk_data.append(static_risk.risk_calc(self.raw_data[k]["Ratio"], *self.return_data[k]))
+            self.risk_data.append(static_risk.static_calc(self.raw_data[k]["Ratio"], *self.return_data[k]))
 
         for k in range(0, len(stocks)):
             self.raw_mon_close.append(self.raw_data[k]["Close"])

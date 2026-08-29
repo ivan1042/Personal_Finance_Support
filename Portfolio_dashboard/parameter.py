@@ -86,11 +86,11 @@ if submit:
 
             st.subheader("Buy and hold Risk")
 
-            st.metric("VaR", analyzed.bh_risk_data[0])
+            st.metric("VaR", analyzed.bh_static_risk_data[0])
 
-            st.metric("Max DD", analyzed.bh_risk_data[4])
+            st.metric("Max DD", analyzed.bh_static_risk_data[4])
 
-            st.metric("Sortino", analyzed.bh_risk_data[3])
+            st.metric("Sortino", analyzed.bh_static_risk_data[3])
 
         with right:
 
@@ -119,12 +119,12 @@ if submit:
 
             st.subheader("return maxtrix")
             st.metric("Yearly geo mean", analyzed.bh_return_data[3])
-            st.metric("Historical VaR", analyzed.bh_risk_data[0])
-            st.metric("Parametric VaR", analyzed.bh_risk_data[1])
-            st.metric("sharpe_ratio", analyzed.bh_risk_data[2])
-            st.metric("sortino_ratio", analyzed.bh_risk_data[3])
-            st.metric("max_drawdown", analyzed.bh_risk_data[4])
-            st.metric("volatility", analyzed.bh_risk_data[5])
+            st.metric("Historical VaR", analyzed.bh_static_risk_data[0])
+            st.metric("Parametric VaR", analyzed.bh_static_risk_data[1])
+            st.metric("sharpe_ratio", analyzed.bh_static_risk_data[2])
+            st.metric("sortino_ratio", analyzed.bh_static_risk_data[3])
+            st.metric("max_drawdown", analyzed.bh_static_risk_data[4])
+            st.metric("volatility", analyzed.bh_static_risk_data[5])
 
         with col_2:
             st.subheader("CW Historical Portfolio Performance")
@@ -137,9 +137,9 @@ if submit:
             )
             st.subheader("return maxtrix")
             st.metric("Yearly geo mean", analyzed.cw_return_data[3])
-            st.metric("Historical VaR", analyzed.cw_risk_data[0])
-            st.metric("Parametric VaR", analyzed.cw_risk_data[1])
-            st.metric("sharpe_ratio", analyzed.cw_risk_data[2])
-            st.metric("sortino_ratio", analyzed.cw_risk_data[3])
-            st.metric("max_drawdown", analyzed.cw_risk_data[4])
-            st.metric("volatility", analyzed.cw_risk_data[5])
+            st.metric("Historical VaR", analyzed.cw_static_risk_data[0])
+            st.metric("Parametric VaR", analyzed.cw_static_risk_data[1])
+            st.metric("sharpe_ratio", analyzed.cw_static_risk_data[2])
+            st.metric("sortino_ratio", analyzed.cw_static_risk_data[3])
+            st.metric("max_drawdown", analyzed.cw_static_risk_data[4])
+            st.metric("volatility", analyzed.cw_static_risk_data[5])

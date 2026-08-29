@@ -5,7 +5,7 @@ from analytics import returns
 confidence_level = 0.95
 risk_free = 0.045
 
-def risk_calc(df, monthly_art_mean, yearly_art_mean, monthly_geo_mean, yearly_geo_mean):
+def static_calc(df, monthly_art_mean, yearly_art_mean, monthly_geo_mean, yearly_geo_mean):
 
     #No assumption
     historical_VaR = np.percentile(df.dropna(), (1 - confidence_level) * 100)

@@ -1,6 +1,3 @@
-from analytics.returns import *
-from analytics.risk import *
-
 def retirement_amount(monthly_geo_mean,
                       retire_age = 65, death_age = 100, monthly_expense = 8681, yearly_inflation = 0.03):
     period = (death_age - retire_age) * 12
