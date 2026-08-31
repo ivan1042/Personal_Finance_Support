@@ -48,15 +48,17 @@ class analysis():
 
         self.buy_and_hold = dataframe.combined(Buy_and_hold.Historic_return(self.raw_data, self.weight))
         self.bh_return_data = returns.returns(self.buy_and_hold["Ratio"])
-        self.bh_static_risk_data = static_risk.static_calc(self.buy_and_hold["Ratio"], *self.bh_return_data)
-        self.bh_rolling_risk_data = rolling_risk.rolling_calc(self.buy_and_hold["Ratio"],self.risk_free["Close"],
-                                                              self.benchmark["Ratio"])
+        self.bh_static_risk_data = static_risk.static_calc(self.buy_and_hold["Ratio"], *self.bh_return_data,
+                                                           self.risk_free["Ratio"], self.benchmark["Ratio"])
+        self.bh_rolling_risk_data = rolling_risk.rolling_calc(self.buy_and_hold["Ratio"], 
+                                                              self.risk_free["Ratio"], self.benchmark["Ratio"])
 
         self.constant_weight = dataframe.combined(Constant_weight.Weighted_return(self.raw_data, self.weight))
         self.cw_return_data = returns.returns(self.constant_weight["Ratio"])
-        self.cw_static_risk_data = static_risk.static_calc(self.constant_weight["Ratio"], *self.cw_return_data)
-        self.cw_rolling_risk_data = rolling_risk.rolling_calc(self.constant_weight["Ratio"], self.risk_free["Close"],
-                                                              self.benchmark["Ratio"])
+        self.cw_static_risk_data = static_risk.static_calc(self.constant_weight["Ratio"], *self.cw_return_data,
+                                                           self.risk_free["Ratio"], self.benchmark["Ratio"])
+        self.cw_rolling_risk_data = rolling_risk.rolling_calc(self.constant_weight["Ratio"], 
+                                                              self.risk_free["Ratio"], self.benchmark["Ratio"])
 
         for k in self.raw_data:
             self.return_data.append(returns.returns(k["Ratio"]))
