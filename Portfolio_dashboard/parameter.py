@@ -143,3 +143,22 @@ if submit:
             st.metric("sortino_ratio", f"{analyzed.cw_static_risk_data[3]:.2f}")
             st.metric("max_drawdown", f"{analyzed.cw_static_risk_data[4] * capital:.2f}")
             st.metric("volatility", f"{analyzed.cw_static_risk_data[5]:.2f}")
+
+        st.divider()
+        left, right = st.columns([1,1])
+        with left:
+            fig_3 = px.line(
+                analyzed.bh_rolling_risk_data
+            )
+            st.plotly_chart(
+                fig_3,
+                width='stretch'
+            )
+        with right:
+            fig_4 = px.line(
+                analyzed.cw_rolling_risk_data
+            )
+            st.plotly_chart(
+                fig_4,
+                width='stretch'
+            )
