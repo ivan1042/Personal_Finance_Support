@@ -64,7 +64,8 @@ class analysis():
             self.return_data.append(returns.returns(k["Ratio"]))
 
         for k in range(0, len(stocks)):
-            self.risk_data.append(static_risk.static_calc(self.raw_data[k]["Ratio"], *self.return_data[k]))
+            self.risk_data.append(static_risk.static_calc(self.raw_data[k]["Ratio"], *self.return_data[k],
+                                                          self.risk_free["Ratio"], self.benchmark["Ratio"]))
 
         for k in range(0, len(stocks)):
             self.raw_mon_close.append(self.raw_data[k]["Close"])

@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import scipy.stats as stats
 from analytics import returns
 
@@ -22,11 +23,14 @@ def static_calc(df, monthly_art_mean, yearly_art_mean, monthly_geo_mean, yearly_
 
 
     volatility = np.std(df, ddof=1)
-    beta = np.cov(df, benchmark)/ (np.std(benchmark))**2
+    temp = pd.concat([df, benchmark], axis = 1, keys=['df', 'benchmark'])
+    temp.dropna(inplace = True)
+    beta = np.cov(temp["df"], temp["benchmark"])/ (np.std(temp["benchmark"]))**2
     expected_return = (np.mean(benchmark) - monthly_rf_ratio) * beta + monthly_rf_ratio
     sharpe_ratio = (mu - monthly_rf_ratio )/ volatility
 
-    downside_volatility = np.std(df[df <= expected_return].dropna(), ddof=1)
+
+    downside_volatility = np.std(df[df <= expected_return[0, 1]].dropna(), ddof=1)
     sortino_ratio = (mu - monthly_rf_ratio )/ downside_volatility
 
     wealth_index = np.cumprod(df.dropna())
