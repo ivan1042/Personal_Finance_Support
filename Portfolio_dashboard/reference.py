@@ -22,7 +22,7 @@ with input_5:
     rolling_window = st.selectbox("Rolling window", [36], format_func=lambda value: f"{value} months")
 with input_6:
     st.write("")
-    submit = st.button("Analyze portfolio", use_container_width=True, type="primary")
+    submit = st.button("Analyze portfolio", width='stretch', type="primary")
 
 
 def risk_table(analyzed):
@@ -55,8 +55,9 @@ if submit:
 
         st.divider()
         strategy = st.radio(
-            "Strategy view", ["Compare both", "Buy & Hold", "Constant Weight"],
-            horizontal=True, label_visibility="collapsed"
+            "KPI Strategy", ["Buy & Hold", "Constant Weight"],
+            horizontal=True, label_visibility="collapsed",
+            help="Choose which strategy supplies the KPI cards below.",
         )
 
         # KPIs use the selected portfolio strategy, never weighted individual-asset risk.
@@ -85,11 +86,7 @@ if submit:
                 [analyzed.bh_historical_return.rename("Buy & Hold"),
                  analyzed.cw_historical_return.rename("Constant Weight")], axis=1
             ) * capital
-            if strategy == "Buy & Hold":
-                wealth = wealth[["Buy & Hold"]]
-            elif strategy == "Constant Weight":
-                wealth = wealth[["Constant Weight"]]
-            st.plotly_chart(px.line(wealth, labels={"value": "Portfolio value ($)", "index": "Date"}), use_container_width=True)
+            st.plotly_chart(px.line(wealth, labels={"value": "Portfolio value ($)", "index": "Date"}), width='stretch')
 
         with right:
             st.subheader("Strategy comparison")
@@ -104,7 +101,7 @@ if submit:
                 .format("{:.2%}", subset=pd.IndexSlice[percentage_rows, :])
                 .format("{:.2f}", subset=pd.IndexSlice[ratio_rows, :])
             )
-            st.dataframe(formatted_comparison, use_container_width=True)
+            st.dataframe(formatted_comparison, width='stretch')
 
         rolling_left, rolling_right = st.columns([1.55, 1])
         with rolling_left:
@@ -117,19 +114,19 @@ if submit:
                 analyzed.bh_rolling_risk_data[metric].rename("Buy & Hold"),
                 analyzed.cw_rolling_risk_data[metric].rename("Constant Weight"),
             ], axis=1)
-            st.plotly_chart(px.line(rolling, labels={"value": metric, "index": "Date"}), use_container_width=True)
+            st.plotly_chart(px.line(rolling, labels={"value": metric, "index": "Date"}), width='stretch')
 
         with rolling_right:
             st.subheader("Weight behavior")
             st.caption("Buy & Hold drifts; Constant Weight is rebalanced to target weights.")
-            drift = analyzed.buy_and_hold[f"New_weight_{k}" for k in range(0, len(stocks))]
+            drift = analyzed.buy_and_hold[[f"New_weight_{k}" for k in range(0, len(stocks))]]
             for i, j in enumerate(stocks):
-                drift.rename(columns = {f"New_weight_{i}": j})
-            st.plotly_chart(px.line(drift, labels={"value": "Portfolio weight", "index": "Date"}), use_container_width=True)
+                drift.rename(columns = {f"New_weight_{i}": j}, inplace=True)
+            st.plotly_chart(px.line(drift, labels={"value": "Portfolio weight", "index": "Date"}), width='stretch')
 
         with st.expander("Holdings and methodology"):
             allocation = pd.DataFrame({"Ticker": stocks, "Target weight": target_weights})
-            st.dataframe(allocation.style.format({"Target weight": "{:.2%}"}), use_container_width=True)
+            st.dataframe(allocation.style.format({"Target weight": "{:.2%}"}), width='stretch')
             st.caption(f"Rolling metrics use a {rolling_window}-month window. VaR confidence level: 95%.")
 
     except (ValueError, KeyError) as error:
