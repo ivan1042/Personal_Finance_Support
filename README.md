@@ -6,10 +6,10 @@ Python tools for exploring market data, portfolio risk, and personal-finance sce
 
 ## Projects
 
-| Project | Purpose | Entry point |
-| --- | --- | --- |
-| [Portfolio Dashboard](Portfolio_dashboard/README.md) | Analyze a user-defined portfolio, view risk/return metrics, simulate possible paths, and explore retirement estimates. | `Portfolio_dashboard/webpage.py` |
-| [Stock Analysis](<Stock analysis/README.md>) | Explore individual-stock volatility and beta indicators, visualizations, and experimental trading signals. | `Stock analysis/visualization.py` |
+| Project | Purpose | Entry point                         |
+| --- | --- |-------------------------------------|
+| [Portfolio Dashboard](Portfolio_dashboard/README.md) | Analyze a user-defined portfolio, view risk/return metrics, simulate possible paths, and explore retirement estimates. | `Portfolio_dashboard/webpage_v2.py` |
+| [Stock Analysis](<Stock analysis/README.md>) | Explore individual-stock volatility and beta indicators, visualizations, and experimental trading signals. | `Stock analysis/visualization.py`   |
 
 ## Features
 
@@ -41,7 +41,7 @@ python -m pip install -r requirements.txt
 Portfolio Dashboard:
 
 ```powershell
-streamlit run Portfolio_dashboard/webpage.py
+streamlit run Portfolio_dashboard/webpage_v2.py
 ```
 
 Stock Analysis:
