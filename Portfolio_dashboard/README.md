@@ -18,7 +18,7 @@ A quantitative portfolio risk engine that constructs portfolio return series und
 From the repository root, after installing [the project dependencies](../README.md#quick-start):
 
 ```powershell
-streamlit run Portfolio_dashboard/webpage.py
+streamlit run Portfolio_dashboard/webpage_v2.py
 ```
 
 In VS Code, press `F5` and choose **Run Personal Finance dashboard**.
@@ -35,15 +35,15 @@ On first use, historical monthly price data is downloaded through `yfinance` and
 
 ## Main components
 
-| File or folder | Responsibility |
-| --- | --- |
-| `webpage.py` | Streamlit user interface and charts |
-| `analysis.py` | Coordinates data retrieval, metrics, and simulations |
-| `analytics/returns.py` | Arithmetic/geometric return calculations and portfolio history |
-| `analytics/risk.py` | VaR, volatility, Sharpe, Sortino, and drawdown calculations |
+| File or folder             | Responsibility |
+|----------------------------| --- |
+| `webpage_v2.py`            | Streamlit user interface and charts |
+| `analysis.py`              | Coordinates data retrieval, metrics, and simulations |
+| `analytics/returns.py`     | Arithmetic/geometric return calculations and portfolio history |
+| `analytics/risk.py`        | VaR, volatility, Sharpe, Sortino, and drawdown calculations |
 | `analytics/monte_carlo.py` | Correlated portfolio-path simulation |
-| `analytics/retirement.py` | Retirement amount calculation |
-| `../service/` | Market-data download, caching, and dataframe preparation |
+| `analytics/retirement.py`  | Retirement amount calculation |
+| `../service/`              | Market-data download, caching, and dataframe preparation |
 
 ## Notes and limitations
 

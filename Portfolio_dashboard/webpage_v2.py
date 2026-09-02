@@ -214,17 +214,28 @@ with rolling_col:
 
 with weights_col:
     st.subheader("Buy & Hold weight drift")
-    st.caption("Asset weights vary over time; Constant Weight restores target weights every month.")
-    drift = analyzed.buy_and_hold[[f"New_weight_{k}" for k in range(0, len(tickers))]]
-    for i, j in enumerate(tickers):
-        drift.rename(columns={f"New_weight_{i}": j}, inplace=True)
+    st.caption(
+        "Asset weights vary as relative prices change. "
+        "Constant Weight restores target weights every month."
+    )
+    weight_columns = [f"New_weight_{i}"for i in range(len(config["tickers"]))]
+    drift = analyzed.buy_and_hold.loc[:, weight_columns].copy()
+    drift = drift.rename(columns=dict(zip(weight_columns, config["tickers"])))
     st.plotly_chart(
-        px.line(drift, labels={"value": "Portfolio weight", "index": "Date"}),
-        use_container_width=True,
+        px.line(
+            drift,
+            labels={
+                "value": "Portfolio weight",
+                "index": "Date",
+                "variable": "Ticker",
+            },
+        ),
+        width='stretch',
     )
 
 st.divider()
 simulation_col, holdings_col = st.columns([1.7, 1])
+
 with simulation_col:
     st.subheader("Monte Carlo simulation")
     st.caption(f"{config['years']}-year simulated portfolio paths based on the selected assets.")
