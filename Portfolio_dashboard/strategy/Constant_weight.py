@@ -1,5 +1,8 @@
 import pandas as pd
-from helper import *
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from Portfolio_dashboard.helper import *
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 
@@ -24,4 +27,3 @@ def Weighted_return(raw_data: list, initial_weight = [0.3, 0.7]):
 
     return df
 
-print(Weighted_return(test_helper()))

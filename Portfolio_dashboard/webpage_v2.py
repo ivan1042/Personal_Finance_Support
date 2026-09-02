@@ -134,7 +134,7 @@ with st.form("portfolio_input", border=False):
         rolling_window = st.selectbox("Rolling window", [36], format_func=lambda months: f"{months} months")
     with c6:
         st.write("")
-        submitted = st.form_submit_button("Analyze portfolio", use_container_width=True, type="primary")
+        submitted = st.form_submit_button("Analyze portfolio", width='stretch', type="primary")
 
 if submitted:
     try:
@@ -185,7 +185,7 @@ with performance_col:
     ) * capital
     st.plotly_chart(
         px.line(wealth, labels={"value": "Portfolio value ($)", "index": "Date"}),
-        use_container_width=True,
+        width='stretch',
     )
 
 with comparison_col:
@@ -208,7 +208,7 @@ with rolling_col:
     )
     st.plotly_chart(
         px.line(rolling_data, labels={"value": selected_label, "index": "Date"}),
-        use_container_width=True,
+        width='stretch',
     )
     st.caption(f"{config['rolling_window']}-month window. Changing this metric does not rerun portfolio analysis.")
 
@@ -241,14 +241,14 @@ with simulation_col:
     st.caption(f"{config['years']}-year simulated portfolio paths based on the selected assets.")
     st.plotly_chart(
         px.line(analyzed.sim_result, labels={"value": "Portfolio value", "index": "Month"}),
-        use_container_width=True,
+        width='stretch',
     )
 
 with holdings_col:
     st.subheader("Target allocation")
     allocation = pd.DataFrame({"Ticker": config["tickers"], "Target weight": config["weights"]})
-    st.plotly_chart(px.pie(allocation, names="Ticker", values="Target weight", hole=0.45), use_container_width=True)
-    st.dataframe(allocation.style.format({"Target weight": "{:.2%}"}), hide_index=True, use_container_width=True)
+    st.plotly_chart(px.pie(allocation, names="Ticker", values="Target weight", hole=0.45), width='stretch')
+    st.dataframe(allocation.style.format({"Target weight": "{:.2%}"}), hide_index=True, width='stretch')
 
 with st.expander("Methodology and data notes"):
     st.markdown(
