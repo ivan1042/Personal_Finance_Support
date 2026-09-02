@@ -2,7 +2,6 @@ import pandas as pd
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from Portfolio_dashboard.helper import *
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 
