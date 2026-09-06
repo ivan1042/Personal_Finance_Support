@@ -8,7 +8,7 @@ def simulation(raw_mon_return_temp, mon_re_temp,
     return_df = pd.concat(raw_mon_return_temp, axis=1)
     return_matrix = np.array(mon_re_temp).T
     time = timeframe * 12
-    initial_amount = 10000
+    initial_amount = 1
     weight = np.array(weight).T
     meanM = np.full(shape = (time, len(weight)), fill_value = return_matrix - 1)
     meanM = meanM.T
@@ -26,5 +26,5 @@ def simulation(raw_mon_return_temp, mon_re_temp,
         monthly_return = meanM + np.inner(L, Z)
         portfolio_sim[: ,m] = np.cumprod(np.inner(weight, monthly_return.T + 1)) * initial_amount
 
-    #print(portfolio_sim)
+    print(portfolio_sim)
     return portfolio_sim

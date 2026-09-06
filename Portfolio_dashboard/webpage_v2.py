@@ -191,7 +191,7 @@ with performance_col:
 with comparison_col:
     st.subheader("Static risk comparison")
     st.caption("Monthly portfolio return metrics.")
-    st.dataframe(format_risk_table(static_risk_comparison(analyzed)), use_container_width=True)
+    st.dataframe(format_risk_table(static_risk_comparison(analyzed)), width='stretch')
 
 rolling_col, weights_col = st.columns([1.55, 1])
 with rolling_col:
@@ -240,7 +240,7 @@ with simulation_col:
     st.subheader("Monte Carlo simulation")
     st.caption(f"{config['years']}-year simulated portfolio paths based on the selected assets.")
     st.plotly_chart(
-        px.line(analyzed.sim_result, labels={"value": "Portfolio value", "index": "Month"}),
+        px.line(analyzed.sim_result * capital, labels={"value": "Portfolio value", "index": "Month"}),
         width='stretch',
     )
 
