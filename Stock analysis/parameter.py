@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+import pandas as pd
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from service import lazy_update
 import numpy as np
@@ -18,11 +19,10 @@ def stock_stats(target = "NVDA", interval = "1d"):
     df_VFINX = df_check("VFINX", interval)
     df["Volatility"] = df['%Change'].rolling(window=36).std()
 
-    temp = df["Close"]
+    """    temp = df["Close"]
     df.drop(columns = ["Close"], inplace = True)
     df = (df - df.mean()) / df.std()
-    df["Close"] = temp
-
+    df["Close"] = temp"""
 
     df["Top_vo"] = None
     df["Top_vo"] = np.where(
@@ -43,7 +43,9 @@ def stock_stats(target = "NVDA", interval = "1d"):
         return df
 
     else:
-        df["Beta"] = df["%Change"].rolling(window=36).cov(df_VFINX["%Change"]) / (df["Volatility"]) ** 2
+        df_join = pd.concat([df["%Change"], df["Volatility"], df_VFINX["%Change"]], axis=1,
+                            keys=['df_%Change', 'df_Volatility', 'df_VFINX_%Change'])
+        df["Beta"] = df_join["df_%Change"].rolling(window=36).cov(df_join["df_VFINX_%Change"]) / (df_join["df_Volatility"]) ** 2
         df["Non-systematic"] = df["Volatility"] - df["Beta"]
 
         df["Top_be"] = None
