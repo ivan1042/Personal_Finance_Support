@@ -5,18 +5,17 @@ from service import lazy_update
 import numpy as np
 
 
-def VFINX_df(interval):
-    lazy_update.csv_checker("VFINX", interval)
-    df = lazy_update.to_dataframe("VFINX", interval)
+def df_check(ticker, interval):
+    lazy_update.csv_checker(ticker, interval)
+    df = lazy_update.to_dataframe(ticker, interval)
 
     return df
 
 def stock_stats(target = "NVDA", interval = "1d"):
-    lazy_update.csv_checker(target, interval)
-    df = lazy_update.to_dataframe(target, interval)
 
+    df = df_check(target, interval)
 
-    df_VFINX = VFINX_df(interval)
+    df_VFINX = df_check("VFINX", interval)
     df["Volatility"] = df['%Change'].rolling(window=36).std()
 
     temp = df["Close"]

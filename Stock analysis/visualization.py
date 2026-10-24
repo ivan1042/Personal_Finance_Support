@@ -9,7 +9,7 @@ interval= "1d"
 
 
 df = stock_stats(target, interval)
-df_VFINX = VFINX_df(interval)
+df_VFINX = df_check("VFINX", interval)
 st.set_page_config(layout="wide")
 left, right = st.columns([1,1])
 
