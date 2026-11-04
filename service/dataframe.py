@@ -1,10 +1,12 @@
 import pandas as pd
 from pathlib import Path
 
-current = Path(__file__).resolve().parent
-data = current.parent / "data"
 
-def stats(stock_code = "VFINX", interval = "1mo"):
+def stats(stock_code = "VFINX", interval = "1mo", hk = False):
+    if hk:
+        data = Path(__file__).resolve().parent.parent / "data" / "hkex_to_hk_flow" / "hk_stocks"
+    else:
+        data = Path(__file__).resolve().parent.parent / "data"
     for item in data.iterdir():
         if f"{stock_code}_{interval}" in item.name:
             df = pd.read_csv(item, header = 0, index_col = 0, skiprows = [1, 2])
